@@ -1,6 +1,6 @@
 <?php
 /**
- * Provide a admin area view for the plugin
+ * Provide a option functions for particular sections
  *
  * This file is used to markup the admin-facing aspects of the plugin.
  *
@@ -10,6 +10,7 @@
  * @package    Performance_Kit
  * @subpackage Performance_Kit/admin/modules
  */
+
 
 /**
  * Local Google Analytics

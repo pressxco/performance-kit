@@ -1,6 +1,6 @@
 <?php
 /**
- * Provide a admin area view for the plugin
+ * Provide a admin area view for the particular section
  *
  * This file is used to markup the admin-facing aspects of the plugin.
  *
@@ -8,7 +8,7 @@
  * @since 1.0.0
  *
  * @package    Performance_Kit
- * @subpackage Performance_Kit/admin/modules
+ * @subpackage Performance_Kit/admin/fields
  */
 
 class Performance_Kit_Wordpress_Options extends Performance_Kit_Admin {
@@ -297,10 +297,11 @@ class Performance_Kit_Wordpress_Options extends Performance_Kit_Admin {
 
 			<?php 
 				wp_nonce_field( 'performance_kit_update', 'performance_kit_form' ); 
-
+				echo '<div class="wp">';
 				// WordPress Base Options
 				$this->section_heading('WordPress Base Options', 'Modify the WordPress Core functionalities...');
 				$this->performance_kit_list_layout( $this->kit_wordpress_options, 'kit_option' );
+				echo '</div>';
 
 				// WordPress Config Options
 				$this->section_heading('WordPress Config', 'Modify the WordPress Config file for better performance...');
@@ -339,7 +340,6 @@ class Performance_Kit_Wordpress_Options extends Performance_Kit_Admin {
 		<?php
 	}
 }
-
 
 // Initialize
 $init = new Performance_Kit_Wordpress_Options();

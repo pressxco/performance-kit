@@ -1,6 +1,6 @@
 <?php
 /**
- * Provide a admin area view for the plugin
+ * Provide a admin area view for the particular section
  *
  * This file is used to markup the admin-facing aspects of the plugin.
  *
@@ -8,7 +8,7 @@
  * @since 1.0.0
  *
  * @package    Performance_Kit
- * @subpackage Performance_Kit/admin/modules
+ * @subpackage Performance_Kit/admin/fields
  */
 
 class Performance_Kit_Woocommerce_Options extends Performance_Kit_Admin {
