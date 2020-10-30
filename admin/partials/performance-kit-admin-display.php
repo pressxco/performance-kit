@@ -50,23 +50,23 @@ settings_errors();
 			<?php echo __('Core', 'performance-kit'); ?>
 			</a>
 
-			<a href="?page=performance-kit" 
-			class="nav-tab <?php if ( $tab === 'woocommerce' ) :?> nav-tab<?php endif;?>">
+			<a href="?page=performance-kit&tab=woocommerce" 
+			class="nav-tab <?php if ( $tab === 'woocommerce' ) :?> nav-tab-active <?php endif;?>">
 			<?php echo __('WooCommerce', 'performance-kit'); ?>
 			</a>
 
-			<a href="?page=performance-kit" 
-			class="nav-tab <?php if ( $tab === 'cdn' ) :?> nav-tab<?php endif;?>">
+			<a href="?page=performance-kit&tab=cdn" 
+			class="nav-tab <?php if ( $tab === 'cdn' ) :?> nav-tab-active <?php endif;?>">
 			<?php echo __('CDN', 'performance-kit'); ?>
 			</a>
 
-			<a href="?page=performance-kit" 
-			class="nav-tab <?php if ( $tab === 'analytics' ) :?> nav-tab<?php endif;?>">
+			<a href="?page=performance-kit&tab=analytics" 
+			class="nav-tab <?php if ( $tab === 'analytics' ) :?> nav-tab-active <?php endif;?>">
 			<?php echo __('Analytics', 'performance-kit'); ?>
 			</a>
 
-			<a href="?page=performance-kit" 
-			class="nav-tab <?php if ( $tab === 'extras' ) :?> nav-tab<?php endif;?>">
+			<a href="?page=performance-kit&tab=extras" 
+			class="nav-tab <?php if ( $tab === 'extras' ) :?> nav-tab-active <?php endif;?>">
 			<?php echo __('Extras', 'performance-kit'); ?>
 			</a>
 
