@@ -78,7 +78,6 @@ class Performance_Kit_Misc_Options extends Performance_Kit_Admin {
 	}
 }
 
-
 // Initialize
 $init = new Performance_Kit_Misc_Options();
 $init->options_setup();

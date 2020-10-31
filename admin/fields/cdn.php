@@ -70,7 +70,6 @@ class Performance_Kit_CDN_Options extends Performance_Kit_Admin {
 	}
 }
 
-
 // Initialize
 $init = new Performance_Kit_CDN_Options();
 $init->options_setup();

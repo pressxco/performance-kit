@@ -65,8 +65,8 @@ settings_errors();
 			<?php echo __('Analytics', 'performance-kit'); ?>
 			</a>
 
-			<a href="?page=performance-kit&tab=extras" 
-			class="nav-tab <?php if ( $tab === 'extras' ) :?> nav-tab-active <?php endif;?>">
+			<a href="?page=performance-kit&tab=misc" 
+			class="nav-tab <?php if ( $tab === 'misc' ) :?> nav-tab-active <?php endif;?>">
 			<?php echo __('Extras', 'performance-kit'); ?>
 			</a>
 

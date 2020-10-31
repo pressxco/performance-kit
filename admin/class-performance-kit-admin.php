@@ -231,7 +231,7 @@ class Performance_Kit_Admin {
 		$this->performance_kit_option_update( 'submit-disable-scripts', $array );
 
 		foreach ( $array as $key ) {
-			include 'kit-option.php';
+			include 'partials/kit-option.php';
 		}
 	}
 

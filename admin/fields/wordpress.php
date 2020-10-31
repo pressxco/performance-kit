@@ -305,6 +305,18 @@ class Performance_Kit_Wordpress_Options extends Performance_Kit_Admin {
 
 				// WordPress Config Options
 				$this->section_heading('WordPress Config', 'Modify the WordPress Config file for better performance...');
+
+				// Warning for wp-config options
+				if ( file_exists( ABSPATH . 'wp-config.php' ) === false ) {
+					echo '<div class="woocommerce-notification">';
+					echo file_get_contents( plugin_dir_path( PERFORMANCE_KIT_FILE ) . '/admin/assets/icons/alert.svg');
+					echo __(
+						'Seems like your wp-config.php is not in the default place and this section requires a standard wp-config placement. <a target="_blank" href="mailto:hello@pressx.co">Contact us for more information.</a>',
+						'performance-kit'
+					);
+					echo '</div>';
+				}
+
 				$this->performance_kit_list_layout( $this->kit_config_options, 'kit_option' );
 
 				// WordPress Functions
@@ -314,26 +326,6 @@ class Performance_Kit_Wordpress_Options extends Performance_Kit_Admin {
 				submit_button( __( 'Save Changes', 'performance-kit' ), 'primary kit-button', 'submit-disable-scripts', true );
 
 			?>
-
-
-			<?php if ( file_exists( ABSPATH . 'wp-config.php' ) === false ) : ?>
-
-			<div class="woocommerce-notification">
-				<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-					stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-alert-circle">
-					<circle cx="12" cy="12" r="10"></circle>
-					<line x1="12" y1="8" x2="12" y2="12"></line>
-					<line x1="12" y1="16" x2="12.01" y2="16"></line>
-				</svg>
-				<?php
-				echo __(
-					'Seems like your wp-config.php is not in the default place and this section requires a standard wp-config placement. <a target="_blank" href="mailto:hello@pressx.co">Contact us for more information.</a>',
-					'performance-kit'
-				);
-				?>
-			</div>
-
-			<?php endif; ?>
 
 		</form>
 
