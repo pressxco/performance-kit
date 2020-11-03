@@ -30,9 +30,10 @@ settings_errors();
 			<span class="version"><?php echo 'v' . $this->version; ?></span>
 		</a>
 		<div class="title-nav">
-			<a href="/">
-				<?php echo file_get_contents( plugin_dir_path( PERFORMANCE_KIT_FILE ) . '/admin/assets/icons/docs.svg'); ?>
-				<span><?php echo __( 'Documentation', 'performance-kit' ); ?></span>
+			<a class="<?php if ( $tab === 'import' ) :?>active<?php endif;?>" 
+			href="?page=performance-kit&tab=import">
+				<?php echo file_get_contents( plugin_dir_path( PERFORMANCE_KIT_FILE ) . '/admin/assets/icons/restore.svg'); ?>
+				<span><?php echo __( 'Import / Export', 'performance-kit' ); ?></span>
 			</a>
 			<a href="/">
 				<?php echo file_get_contents( plugin_dir_path( PERFORMANCE_KIT_FILE ) . '/admin/assets/icons/support.svg'); ?>
@@ -90,6 +91,9 @@ settings_errors();
 		case 'misc':
 			include plugin_dir_path( PERFORMANCE_KIT_FILE ) . 'admin/fields/misc.php';
 			break;
+		case 'import': 
+			include plugin_dir_path( PERFORMANCE_KIT_FILE ) . 'admin/fields/import.php';
+			break;
 		default:
 			include plugin_dir_path( PERFORMANCE_KIT_FILE ) . 'admin/fields/wordpress.php';
 			break;
@@ -97,6 +101,7 @@ settings_errors();
 	?>
 
   </div>
+
 
 
 </div>

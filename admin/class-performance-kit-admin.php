@@ -235,30 +235,5 @@ class Performance_Kit_Admin {
 		}
 	}
 
-	public function encode_arr($data) {
-    return base64_encode(serialize($data));
-	}
-
-	public function decode_arr($data) {
-			return unserialize(base64_decode($data));
-	}
-
-	public function setting_export() {
-		$all_options = wp_load_alloptions();
-		$my_options  = array();
-		
-		foreach ( $all_options as $name => $value ) {
-				if ( stristr( $name, 'kit-' ) ) {
-						$my_options[ $name ] = $value;
-				}
-		}
-		print_r($this->encode_arr($my_options));
-
-		$test = $this->encode_arr($my_options);
-
-		print_r($this->decode_arr($test));
-		
-	}
-
 
 }

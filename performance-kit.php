@@ -50,10 +50,10 @@ define( 'PERFORMANCE_KIT_FILE', __FILE__ );
 
 require plugin_dir_path( __FILE__ ) . 'includes/class-performance-kit.php';
 
-if(!class_exists('WPConfigTransformer')) {
+if ( ! class_exists( 'WPConfigTransformer' ) ) {
 
 	require plugin_dir_path( __FILE__ ) . 'admin/inc/wp-config-transformer/WPConfigTransformer.php';
-	
+
 }
 
 /**
@@ -85,7 +85,6 @@ function uninstall_performance_kit() {
 
 register_activation_hook( __FILE__, 'activate_performance_kit' );
 register_deactivation_hook( __FILE__, 'deactivate_performance_kit' );
-register_uninstall_hook( __FILE__, 'uninstall_performance_kit' );
 
 
 /**
@@ -104,9 +103,20 @@ function run_performance_kit() {
 }
 run_performance_kit();
 
-function cyb_activation_redirect( $plugin ) {
-    if( $plugin == plugin_basename( __FILE__ ) ) {
-        exit( wp_redirect( admin_url( '/options-general.php?page=performance-kit' ) ) );
-    }
+function save_performance_kit_version() {
+
+	if ( get_option( 'performance_kit_version' ) ) {
+		update_option( 'performance_kit_version', PERFORMANCE_KIT_VERSION );
+	} else {
+		add_option( 'performance_kit_version', PERFORMANCE_KIT_VERSION );
+	}
+
 }
-add_action( 'activated_plugin', 'cyb_activation_redirect' );
+save_performance_kit_version();
+
+function performance_kit_activation_redirect( $plugin ) {
+	if ( $plugin == plugin_basename( __FILE__ ) ) {
+		exit( wp_redirect( admin_url( '/options-general.php?page=performance-kit' ) ) );
+	}
+}
+add_action( 'activated_plugin', 'performance_kit_activation_redirect' );

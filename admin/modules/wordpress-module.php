@@ -67,7 +67,7 @@ function kit_disable_emojis_tinymce( $plugins ) {
 function kit_disable_emojis_dns_prefetch( $urls, $relation_type ) {
 	if ( 'dns-prefetch' == $relation_type ) {
 		$emoji_svg_url = apply_filters( 'emoji_svg_url', 'https://s.w.org/images/core/emoji/2.2.1/svg/' );
-		$urls = array_diff( $urls, array( $emoji_svg_url ) );
+		$urls          = array_diff( $urls, array( $emoji_svg_url ) );
 	}
 	return $urls;
 }
@@ -249,7 +249,7 @@ function kit_disable_rss_feeds() {
 		set_query_var( 'feed', '' );
 	}
 
-	// let Wordpress redirect to the proper URL
+	// let WordPress redirect to the proper URL
 	redirect_canonical();
 
 	// redirect failed, display error message

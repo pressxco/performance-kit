@@ -1,3 +1,5 @@
+$background-color: #0a0d15;
+
 #performance-kit {
   width: auto;
   margin: 0;
@@ -11,7 +13,7 @@
     display: inline-flex;
   }
   .kit-title {
-    background-color: #0a0d15;
+    background-color: $background-color;
     padding: 22px 30px;
     color: #fff;
     font-weight: 600;
@@ -20,7 +22,6 @@
     margin: -20px -20px 0 -20px;
     display: flex;
     align-items: center;
-    margin-bottom: 5px;
     .logo {
       vertical-align: bottom;
       margin-right: 12px;
@@ -40,7 +41,7 @@
     a {
       font-weight: 500;
       color: rgba(255, 255, 255, 0.5);
-      font-size: 14px;
+      font-size: 13px;
       text-decoration: none;
       margin: 0 0 0 8px;
       background-color: rgba(255, 255, 255, 0.1);
@@ -51,6 +52,10 @@
       border-radius: 100px;
       padding: 0 18px;
       transition: 0.3s all;
+      &.active {
+        background-color:rgba(255, 255, 255, 0.2);
+        color: #FFF;
+      }
       &:hover {
         color: #fff;
       }
@@ -59,6 +64,40 @@
       }
       svg {
         margin-right: 5px;
+      }
+    }
+  }
+  textarea {
+    &.kit-option {
+      min-width: 500px;
+      border: none;
+      border-radius: 4px;
+      box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.05);
+      padding: 15px;
+      margin-bottom: 0;
+    }
+  }
+  .nav-tab-wrapper {
+    background-color: $background-color;
+    margin: 0 -20px;
+    padding: 0 20px;
+    border: none;
+    .nav-tab {
+      background-color: transparent;
+      border: none;
+      color: rgba(255,255,255,0.45);
+      padding: 6px 12px 12px 12px;
+      border-bottom: 2px solid transparent;
+      transition: 0.3s all;
+      &.nav-tab-active {
+        color: #FFF;
+        border-bottom: 3px solid #f1f1f1;
+      }
+      &:hover,
+      &:focus {
+        outline: none;
+        box-shadow: none;
+        color: #FFF;
       }
     }
   }

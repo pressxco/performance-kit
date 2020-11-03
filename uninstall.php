@@ -27,5 +27,16 @@
 
 // If uninstall not called from WordPress, then exit.
 if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
+
+	$performance_kit_options = wp_load_alloptions();
+	$performance_kit_array   = array();
+
+	foreach ( $performance_kit_options as $name => $value ) {
+		if ( stristr( $name, 'kit-' ) ) {
+				$my_options[ $name ] = $value;
+				delete_option( $name );
+		}
+	}
+
 	exit;
 }
