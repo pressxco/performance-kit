@@ -120,3 +120,47 @@ function performance_kit_activation_redirect( $plugin ) {
 	}
 }
 add_action( 'activated_plugin', 'performance_kit_activation_redirect' );
+
+
+
+if ( ! function_exists( 'pk_fs' ) ) {
+	// Create a helper function for easy SDK access.
+	function pk_fs() {
+		global $pk_fs;
+
+		if ( ! isset( $pk_fs ) ) {
+			// Include Freemius SDK.
+			require_once dirname( __FILE__ ) . '/freemius/start.php';
+
+			$pk_fs = fs_dynamic_init(
+				array(
+					'id'             => '7166',
+					'slug'           => 'performance-kit',
+					'type'           => 'plugin',
+					'public_key'     => 'pk_93b7162bab48a9918ea334cbd60d5',
+					'is_premium'     => false,
+					'has_addons'     => false,
+					'has_paid_plans' => false,
+					'navigation'     => 'tabs',
+					'menu'           => array(
+						'slug'       => 'performance-kit',
+						'first-path' => '/options-general.php?page=performance-kit',
+						'account'    => false,
+						'contact'    => false,
+						'support'    => false,
+						'parent'     => array(
+							'slug' => 'options-general.php',
+						),
+					),
+				)
+			);
+		}
+
+		return $pk_fs;
+	}
+
+	// Init Freemius.
+	pk_fs();
+	// Signal that SDK was initiated.
+	do_action( 'pk_fs_loaded' );
+}
