@@ -20,7 +20,7 @@
  * -----------------------------------------------------------------------------
  */
 
-if ( ! empty( get_option( 'kit-cdn-rewrite' ) ) && get_option( 'kit-cdn-rewrite' ) == '1' && ! empty( get_option( 'kit-cdn-url' ) ) ) {
+if ( get_option( 'kit-cdn-rewrite' ) == '1' && ! empty( get_option( 'kit-cdn-url' ) ) ) {
 	add_action( 'template_redirect', 'kit_cdn_rewrite' );
 }
 
@@ -61,10 +61,24 @@ function kit_cdn_rewrite_url( $url ) {
 					return $url[0];
 				}
 			}
+
+			if ( ! empty( get_option( 'kit-cdn-excluded-files' ) ) ) {
+				$excluded = array_map( 'trim', explode( ',', get_option( 'kit-cdn-excluded-files' ) ) );
+				foreach ( $excluded as $exclusio ) {
+					if ( ! empty( $exclusio ) && stristr( $url[0], $exclusio ) != false ) {
+						return $url[0];
+					}
+				}
+			}
 		}
 
 		// Don't Rewrite if Previewing
 		if ( is_admin_bar_showing() && isset( $_GET['preview'] ) && $_GET['preview'] == 'true' ) {
+			return $url[0];
+		}
+
+		// Don't Rewrite if User is Admin
+		if (current_user_can('administrator') && get_option('kit-debug-mode') === '1') {
 			return $url[0];
 		}
 

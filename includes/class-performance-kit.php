@@ -118,6 +118,10 @@ class Performance_Kit {
 
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/modules/woocommerce-module.php';
 
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/modules/analytics-module.php';
+
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/modules/cdn-module.php';
+
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/modules/misc-module.php';
 
 		$this->loader = new Performance_Kit_Loader();

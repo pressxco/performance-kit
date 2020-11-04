@@ -34,6 +34,10 @@
   margin-right: 12px;
 }
 
+#performance-kit .kit-title .plugin-name {
+  color: #FFF;
+}
+
 #performance-kit .kit-title .version {
   font-size: 12px;
   margin-top: 9px;
@@ -359,7 +363,7 @@
   border: 1px solid rgba(0, 0, 0, 0.2);
   -moz-box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.05);
        box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.05);
-  min-width: 220px;
+  min-width: 280px;
 }
 
 /*# sourceMappingURL=app.css.map */

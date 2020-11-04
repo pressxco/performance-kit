@@ -174,7 +174,7 @@ class Performance_Kit_Admin {
 	public function display_plugin_name() {
 		$name = str_replace( '-', ' ', $this->plugin_name );
 		$name = ucwords( $name );
-		return $name;
+		return '<a class="plugin-name" href="options-general.php?page=performance-kit">' . $name . '</a>';
 	}
 
 	public function section_heading($title, $description) {

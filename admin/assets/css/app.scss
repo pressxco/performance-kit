@@ -26,6 +26,9 @@ $background-color: #0a0d15;
       vertical-align: bottom;
       margin-right: 12px;
     }
+    .plugin-name {
+      color: #FFF;
+    }
     .version {
       font-size: 12px;
       margin-top: 9px;
@@ -326,5 +329,5 @@ $background-color: #0a0d15;
   min-height: 35px;
   border: 1px solid rgba(0, 0, 0, 0.2);
   box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.05);
-  min-width: 220px;
+  min-width: 280px; 
 }
