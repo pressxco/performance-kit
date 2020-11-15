@@ -292,46 +292,6 @@ function kit_disable_self_pingbacks( &$links ) {
 }
 
 /**
- * Disable REST APIs
- *
- * @since 1.0.0
- * -----------------------------------------------------------------------------
- * -----------------------------------------------------------------------------
- */
-
-if ( ! empty( $kit_options['disable_rest_api'] ) ) {
-	add_filter( 'rest_authentication_errors', 'kit_rest_authentication_errors', 20 );
-}
-
-function kit_rest_authentication_errors( $result ) {
-	if ( ! empty( $result ) ) {
-		return $result;
-	} else {
-		global $perfmatters_options;
-		$disabled = false;
-
-		// get rest route
-		$rest_route = $GLOBALS['wp']->query_vars['rest_route'];
-
-		// check rest route for exceptions
-		if ( strpos( $rest_route, 'contact-form-7' ) !== false ) {
-			return;
-		}
-
-		// check settings
-		if ( $perfmatters_options['disable_rest_api'] == 'disable_non_admins' && ! current_user_can( 'manage_options' ) ) {
-			$disabled = true;
-		} elseif ( $perfmatters_options['disable_rest_api'] == 'disable_logged_out' && ! is_user_logged_in() ) {
-			$disabled = true;
-		}
-	}
-	if ( $disabled ) {
-		return new WP_Error( 'rest_authentication_error', __( 'Sorry, you do not have permission to make REST API requests.', 'perfmatters' ), array( 'status' => 401 ) );
-	}
-	return $result;
-}
-
-/**
  * Remove REST API Links
  *
  * @since 1.0.0
@@ -411,8 +371,8 @@ if ( ! empty( get_option( 'kit-revisions' ) ) ) {
 function kit_admin_notice_post_revisions() {
 	echo "<div class='notice notice-error'>";
 	echo '<p>';
-	echo '<strong>' . __( 'Perfmatters Warning', 'perfmatters' ) . ':</strong> ';
-	echo __( 'WP_POST_REVISIONS is already enabled somewhere else on your site. We suggest only enabling this feature in one place.', 'perfmatters' );
+	echo '<strong>' . __( 'Performance Kit Warning', 'performance-kit' ) . ':</strong> ';
+	echo __( 'WP_POST_REVISIONS is already enabled somewhere else on your site. We suggest only enabling this feature in one place.', 'performance-kit' );
 	echo '</p>';
 	echo '</div>';
 }
@@ -436,8 +396,8 @@ if ( ! empty( get_option( 'kit-autosave' ) ) ) {
 function performance_kit_admin_notice_autosave_interval() {
 	echo "<div class='notice notice-error'>";
 	echo '<p>';
-	echo '<strong>' . __( 'Perfmatters Warning', 'perfmatters' ) . ':</strong> ';
-	echo __( 'AUTOSAVE_INTERVAL is already enabled somewhere else on your site. We suggest only enabling this feature in one place.', 'perfmatters' );
+	echo '<strong>' . __( 'Performance Kit Warning', 'performance-kit' ) . ':</strong> ';
+	echo __( 'AUTOSAVE_INTERVAL is already enabled somewhere else on your site. We suggest only enabling this feature in one place.', 'performance-kit' );
 	echo '</p>';
 	echo '</div>';
 }
@@ -674,7 +634,7 @@ if ( ! empty( get_option( 'kit-file-editor' ) ) && get_option( 'kit-file-editor'
  */
 
 
-if ( file_exists( ABSPATH . 'wp-config.php' ) ) {
+if ( file_exists( ABSPATH . 'wp-config.php' ) && is_writable( ABSPATH . 'wp-config.php' ) ) {
 
 	$config_transformer = new WPConfigTransformer( ABSPATH . 'wp-config.php' );
 

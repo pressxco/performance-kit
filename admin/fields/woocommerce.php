@@ -60,51 +60,14 @@ class Performance_Kit_Woocommerce_Options extends Performance_Kit_Admin {
 
 			<?php
 				wp_nonce_field( 'performance_kit_update', 'performance_kit_form' );
-
-				$kit_woocommerce = $this->woocommerce_checker();
-
-				// WooCommerce Options
-				$this->section_heading( 'WooCommerce Options', 'Modify the WooCommerce assets and functions for better performance...' );
-			?>
-
-				<div class="kit-option">
-
-					<div class="option-title">
-						<span><?php echo __( 'WooCommerce Status', 'performance-kit' ); ?></span>
-					</div>
-
-					<div class="option-text">
-						<?php if ( $kit_woocommerce == false ) : ?>
-						<span class="text red"><?php echo __( '&#9675; Not Active', 'performance-kit' ); ?> </span>
-						<?php else : ?>
-						<span class="text green"><?php echo __( '&#9679; Active', 'performance-kit' ); ?> </span>
-						<?php endif; ?>
-					</div>
-
-					<?php if ( $kit_woocommerce == false ) : ?>
-					<div class="woocommerce-notification">
-						<?php
-						echo file_get_contents( plugin_dir_path( PERFORMANCE_KIT_FILE ) . '/admin/assets/icons/alert.svg' );
-						echo __( 'In order to manage WooCommerce options, you will need WooCommerce plugin installed and activated.', 'performance-kit' );
-						?>
-					</div>
-					<?php else : ?>
-					<div class="woocommerce-notification green">
-						<?php
-						echo file_get_contents( plugin_dir_path( PERFORMANCE_KIT_FILE ) . '/admin/assets/icons/check.svg' );
-						echo __( 'WooCommerce is installed and activated.', 'performance-kit' );
-						?>
-					</div>
-					<?php endif; ?>
-				</div>
-
-				<?php
-				echo '<div class="woocommerce_wrapper">';
-				$this->performance_kit_list_layout( $this->kit_woocommerce_options, 'kit_option' );
-				echo '</div>';
-
-				submit_button( __( 'Save Changes', 'performance-kit' ), 'primary kit-button', 'submit-disable-scripts', true );
-
+				
+				$this->performance_kit_section(
+					'WooCommerce Options',
+					'Modify the WooCommerce assets and functions for better performance...',
+					'kit_woocommerce_options', 
+					$this->kit_woocommerce_options,
+					'kit_option'
+				);
 				?>
 
 		</form>

@@ -48,7 +48,7 @@ class Performance_Kit_CDN_Options extends Performance_Kit_Admin {
 				'description' => __( 'Define which file formats you DO NOT want to add your pull zone.', 'performance-kit' ),
 				'function'    => 'kit-cdn-excluded-files',
 				'type'        => 'inputtext',
-				'placeholder' => '.php,.svg',
+				'placeholder' => '.png,.svg',
 			),
 			'debug_mode' => array(
 				'title'       => 'Enable Debug Mode',
@@ -69,11 +69,13 @@ class Performance_Kit_CDN_Options extends Performance_Kit_Admin {
 			<?php
 				wp_nonce_field( 'performance_kit_update', 'performance_kit_form' );
 
-				// WordPress Base Options
-				$this->section_heading( 'CDN Options', 'Setup, enable and configure a content delivery network for your website...', 'performance-kit' );
-				$this->performance_kit_list_layout( $this->kit_cdn_options, 'kit_option' );
-
-				submit_button( __( 'Save Changes', 'performance-kit' ), 'primary kit-button', 'submit-disable-scripts', true );
+				$this->performance_kit_section(
+					'WordPress CDN Options',
+					'Setup, enable and configure a content delivery network for your website...',
+					'kit_cdn_options', 
+					$this->kit_cdn_options,
+					'kit_option'
+				);
 
 			?>
 

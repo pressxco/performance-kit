@@ -52,7 +52,7 @@ class Performance_Kit_Admin {
 	public function __construct( $plugin_name, $version ) {
 
 		$this->plugin_name = $plugin_name;
-		$this->version = $version;
+		$this->version     = $version;
 
 	}
 
@@ -149,7 +149,7 @@ class Performance_Kit_Admin {
 		*  Documentation : https://codex.wordpress.org/Plugin_API/Filter_Reference/plugin_action_links_(plugin_file_name)
 		*/
 		$settings_link = array( '<a href="' . admin_url( 'options-general.php?page=' . $this->plugin_name ) . '">' . __( 'Settings', $this->plugin_name ) . '</a>' );
-		$pro_link = array( '<a href="' . admin_url( 'options-general.php?page=' . $this->plugin_name ) . '">' . __( 'Go Pro', $this->plugin_name ) . '</a>' );
+		$pro_link      = array( '<a href="' . admin_url( 'options-general.php?page=' . $this->plugin_name ) . '">' . __( 'Go Pro', $this->plugin_name ) . '</a>' );
 		return array_merge( $settings_link, $pro_link, $links );
 
 	}
@@ -177,7 +177,7 @@ class Performance_Kit_Admin {
 		return '<a class="plugin-name" href="options-general.php?page=performance-kit">' . $name . '</a>';
 	}
 
-	public function section_heading($title, $description) {
+	public function section_heading( $title, $description ) {
 		?>
 
 			<div class="section-title">
@@ -197,13 +197,22 @@ class Performance_Kit_Admin {
 		return $this->kit_woocommerce;
 	}
 
-	public function my_error_notice() {
-    ?>
-    <div class="error notice">
-        <p><?php _e( 'There has been an error. Bummer!', 'my_plugin_textdomain' ); ?></p>
-    </div>
-    <?php
-		add_action( 'admin_notices', 'my_error_notice' );
+	public function performance_kit_error_notice() {
+		?>
+	<div class="error notice">
+		<p><?php _e( 'There has been an error. Bummer!', 'performance-kit' ); ?></p>
+	</div>
+		<?php
+		add_action( 'admin_notices', 'performance_kit_error_notice' );
+	}
+
+	public function performance_kit_success_notice() {
+		?>
+		<div class="updated">
+		<p><?php echo __( 'Your fields are updated!', 'performance-kit' ); ?></p>
+		</div>
+		<?php
+		add_action( 'admin_notices', 'performance_kit_succes_notice' );
 	}
 
 	/**
@@ -213,8 +222,8 @@ class Performance_Kit_Admin {
 	 */
 
 	public function performance_kit_option_update( $button_name, $kit ) {
-		if ( array_key_exists( $button_name, $_POST ) ) {
-
+		if ( ! empty( $_POST ) && array_key_exists( $button_name, $_POST ) ) {
+			
 			foreach ( $kit as $kit_wordpress_option ) {
 
 				if ( ! isset( $_POST[ $kit_wordpress_option['function'] ] ) ) {
@@ -223,7 +232,6 @@ class Performance_Kit_Admin {
 					update_option( $kit_wordpress_option['function'], $_POST[ $kit_wordpress_option['function'] ] );
 				}
 			}
-
 		}
 	}
 
@@ -233,7 +241,35 @@ class Performance_Kit_Admin {
 		foreach ( $array as $key ) {
 			include 'partials/kit-option.php';
 		}
+
 	}
 
+	public function performance_kit_section( $title, $description, $section, $array, $key ) {
+		?>
+			<div id="<?php echo $section; ?>" class="pk-section">
+				<?php
+				$this->section_heading( $title, $description );
+
+				// Warning for wp-config options
+				if ( $section === 'kit_config_options' && file_exists( ABSPATH . 'wp-config.php' ) === false ) {
+					echo '<div class="notification">';
+					echo file_get_contents( plugin_dir_path( PERFORMANCE_KIT_FILE ) . '/admin/assets/icons/alert.svg' );
+					echo __(
+						'Seems like your wp-config.php is not in the default place and this section requires a standard wp-config placement. <a target="_blank" href="mailto:hello@pressx.co">Contact us for more information.</a>',
+						'performance-kit'
+					);
+					echo '</div>';
+				}
+
+				if ( $section === 'kit_woocommerce_options' ) {
+					include 'partials/kit-woocommerce.php';
+				}
+
+				$this->performance_kit_list_layout( $array, $key );
+				submit_button( __( 'Save Changes', 'performance-kit' ), 'primary kit-button', 'submit-disable-scripts', true );
+				?>
+			</div>
+		<?php
+	}
 
 }

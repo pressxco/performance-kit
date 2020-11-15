@@ -288,42 +288,41 @@ class Performance_Kit_Wordpress_Options extends Performance_Kit_Admin {
 			),
 		);
 
+		$options_array = array_merge($this->kit_wordpress_options, $this->kit_config_options, $this->kit_advanced_options);
+
 	}
 
 	public function options_setup() {
 		?>
 
 		<form id="performance_kit_wordpress_options" method="post" name="" action="#">
-
+			
 			<?php
 				wp_nonce_field( 'performance_kit_update', 'performance_kit_form' );
-				echo '<div class="wp">';
-				// WordPress Base Options
-				$this->section_heading( 'WordPress Base Options', 'Modify the WordPress Core functionalities...' );
-				$this->performance_kit_list_layout( $this->kit_wordpress_options, 'kit_option' );
-				echo '</div>';
 
-				// WordPress Config Options
-				$this->section_heading( 'WordPress Config', 'Modify the WordPress Config file for better performance...' );
-
-				// Warning for wp-config options
-			if ( file_exists( ABSPATH . 'wp-config.php' ) === false ) {
-				echo '<div class="woocommerce-notification">';
-				echo file_get_contents( plugin_dir_path( PERFORMANCE_KIT_FILE ) . '/admin/assets/icons/alert.svg' );
-				echo __(
-					'Seems like your wp-config.php is not in the default place and this section requires a standard wp-config placement. <a target="_blank" href="mailto:hello@pressx.co">Contact us for more information.</a>',
-					'performance-kit'
+				$this->performance_kit_section(
+					'WordPress Base Options',
+					'Modify the WordPress Core functionalities...',
+					'kit_wordpress_options', 
+					$this->kit_wordpress_options,
+					'kit_option'
 				);
-				echo '</div>';
-			}
 
-				$this->performance_kit_list_layout( $this->kit_config_options, 'kit_option' );
+				$this->performance_kit_section(
+					'WordPress Config Options',
+					'Modify the WordPress Config file for better performance...',
+					'kit_config_options', 
+					$this->kit_config_options,
+					'kit_option'
+				);
 
-				// WordPress Functions
-				$this->section_heading( 'WordPress Functions', 'Modify the WordPress Functions for better performance...' );
-				$this->performance_kit_list_layout( $this->kit_advanced_options, 'kit_option' );
-
-				submit_button( __( 'Save Changes', 'performance-kit' ), 'primary kit-button', 'submit-disable-scripts', true );
+				$this->performance_kit_section(
+					'WordPress Advanced Options',
+					'Modify the WordPress Functions for better performance...',
+					'kit_advanced_options', 
+					$this->kit_advanced_options,
+					'kit_option'
+				);
 
 			?>
 

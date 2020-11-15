@@ -54,6 +54,21 @@ class Performance_Kit_Misc_Options extends Performance_Kit_Admin {
 			),
 		);
 
+		$this->env = array(
+			__( 'System name', 'performance-kit' ) => php_uname(),
+			__( 'PHP Version', 'performance-kit' ) => phpversion(),
+			__( 'Zend Engine version', 'performance-kit' ) => zend_version(),
+			__( 'Server Api', 'performance-kit' ) => php_sapi_name(),
+			__( 'Loaded configuration file', 'performance-kit' ) => php_ini_loaded_file(),
+			__( 'PHP Script Owner', 'performance-kit' ) => get_current_user(),
+			__( 'PHP Script Owner UID', 'performance-kit' ) => getmyuid(),
+			__( 'PHP Script Owner GUID', 'performance-kit' ) => getmygid(),
+			__( 'Memory usage', 'performance-kit' ) => memory_get_usage(),
+			__( 'Memory peak usage', 'performance-kit' ) => memory_get_peak_usage(),
+			__( 'Temporary directory', 'performance-kit' ) => sys_get_temp_dir(),
+  	);
+
+
 	}
 
 	public function options_setup() {
@@ -64,11 +79,13 @@ class Performance_Kit_Misc_Options extends Performance_Kit_Admin {
 			<?php
 				wp_nonce_field( 'performance_kit_update', 'performance_kit_form' );
 
-				// WordPress Base Options
-				$this->section_heading( 'WordPress Misc Options', 'Adjust the WordPress Miscellaneous options for better performance...' );
-				$this->performance_kit_list_layout( $this->kit_misc_options, 'kit_option' );
-
-				submit_button( __( 'Save Changes', 'performance-kit' ), 'primary kit-button', 'submit-disable-scripts', true );
+				$this->performance_kit_section(
+					'WordPress Misc Options',
+					'Adjust the WordPress Miscellaneous options for better performance...',
+					'kit_misc_options', 
+					$this->kit_misc_options,
+					'kit_option'
+				);				
 
 			?>
 

@@ -163,4 +163,11 @@ if ( ! function_exists( 'pk_fs' ) ) {
 	pk_fs();
 	// Signal that SDK was initiated.
 	do_action( 'pk_fs_loaded' );
+
+	function my_is_submenu_visible( $is_visible, $submenu_id ) {
+		return $is_visible;
+	}
+
+	pk_fs()->add_filter( 'is_submenu_visible', 'my_is_submenu_visible', 10, 2 );
+
 }

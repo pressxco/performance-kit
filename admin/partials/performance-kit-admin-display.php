@@ -94,10 +94,6 @@ settings_errors();
 		case 'import': 
 			include plugin_dir_path( PERFORMANCE_KIT_FILE ) . 'admin/fields/import.php';
 			break;
-		case 'account':
-			$freemius = new Freemius();
-			$freemius->_account_page_render();
-			break;
 		default:
 			include plugin_dir_path( PERFORMANCE_KIT_FILE ) . 'admin/fields/wordpress.php';
 			break;

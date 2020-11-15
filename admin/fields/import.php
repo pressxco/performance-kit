@@ -65,25 +65,27 @@ class Performance_Kit_Import_Export extends Performance_Kit_Admin {
 	public function options_setup() {
 		?>
 
-		<form id="performance_kit_export_options" method="post" name="" action="#">
-			<?php $this->section_heading( 'Export Options', 'Modify the WordPress Core functionalities...' ); ?>
-			<textarea class="kit-option kit_option_export" name="export_code" rows="10"><?php $this->setting_export(); ?></textarea>
-			<?php submit_button( __( 'Import Options', 'performance-kit' ), 'primary kit-button', 'restore_options', true ); ?>
-		</form>
+			<div id="misc-options" class="pk-section">
+				<?php $this->section_heading( 'Export Options', 'Modify the WordPress Core functionalities...' ); ?>
+				<textarea id="ecode" class="kit-option kit_option_export" name="export_code" rows="10"><?php $this->setting_export(); ?></textarea>
+				<p class="submit">
+					<button class="button button-primary kit-button" onclick="copyClipboard()"> Copy to clipboard</button>
+				</p>
+			</div>
+
 
 		<form id="performance_kit_import_options" method="post" name="" action="#">
-
 			<?php
 			wp_nonce_field( 'performance_kit_update', 'performance_kit_form' );
-
+			echo '<div id="misc-options" class="pk-section">';
 			$this->section_heading( 'Import Options', 'Modify the WordPress Core functionalities...' );
 			?>
-		  <textarea class="kit-option kit_option_impot" rows="10" name="import_code"></textarea>
+			<textarea class="kit-option kit_option_impot" rows="10" name="import_code"></textarea>
+			
 		<?php
-
 				$this->performance_kit_import_process();
 				submit_button( __( 'Import Options', 'performance-kit' ), 'primary kit-button', 'restore_options', true );
-
+				echo '</div>';
 		?>
 
 		</form>
@@ -98,3 +100,22 @@ $init = new Performance_Kit_Import_Export();
 $init->options_setup();
 
 ?>
+
+<script>
+
+function copyClipboard() {
+  /* Get the text field */
+  var copyText = document.getElementById("ecode");
+
+  /* Select the text field */
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); /*For mobile devices*/
+
+  /* Copy the text inside the text field */
+  document.execCommand("copy");
+
+  /* Alert the copied text */
+  alert("Copied the text: " + copyText.value);
+}
+
+</script>

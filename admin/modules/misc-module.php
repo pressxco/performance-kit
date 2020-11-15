@@ -49,7 +49,7 @@ if ( ! empty( get_option( 'kit-google-maps' ) ) && get_option( 'kit-google-maps'
 }
 
 function kit_disable_google_maps() {
-	ob_start( 'perfmatters_disable_google_maps_regex' );
+	ob_start( 'kit_disable_google_maps_regex' );
 }
 
 function kit_disable_google_maps_regex( $html ) {
@@ -66,7 +66,7 @@ function kit_disable_google_maps_regex( $html ) {
  */
 
 if ( ! empty( get_option( 'kit-google-fonts' ) ) && get_option( 'kit-google-fonts' ) == '1' ) {
-	add_action( 'template_redirect', 'perfmatters_disable_google_fonts' );
+	add_action( 'template_redirect', 'kit_disable_google_fonts' );
 }
 
 function kit_disable_google_fonts() {

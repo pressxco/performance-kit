@@ -33,7 +33,7 @@ if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 
 	foreach ( $performance_kit_options as $name => $value ) {
 		if ( stristr( $name, 'kit-' ) ) {
-				$my_options[ $name ] = $value;
+				$performance_kit_array[ $name ] = $value;
 				delete_option( $name );
 		}
 	}
