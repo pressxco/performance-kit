@@ -98,7 +98,7 @@ class Performance_Kit_Admin {
 		 * class.
 		 */
 
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'assets/js/app.js', array( 'jquery' ), $this->version, false );
+		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'assets/js/app.js', array( 'jquery' ), '1.0.2', false );
 
 	}
 
@@ -134,8 +134,15 @@ class Performance_Kit_Admin {
 		 *
 		 * @link https://codex.wordpress.org/Function_Reference/add_options_page
 		 */
-		add_submenu_page( 'options-general.php', 'Performance Kit', 'Performance Kit', 'manage_options', $this->plugin_name, array( $this, 'display_plugin_setup_page' ) );
-
+		add_menu_page(
+			__( 'Performance Kit', 'performance-kit' ),
+			'Performance Kit',
+			'manage_options',
+			'performance-kit',
+			array( $this, 'display_plugin_setup_page' ),
+			plugins_url( 'performance-kit/admin/assets/icons/flash4.svg' ),
+			999999999
+		);
 	}
 
 	/**
@@ -174,7 +181,7 @@ class Performance_Kit_Admin {
 	public function display_plugin_name() {
 		$name = str_replace( '-', ' ', $this->plugin_name );
 		$name = ucwords( $name );
-		return '<a class="plugin-name" href="options-general.php?page=performance-kit">' . $name . '</a>';
+		return '<a class="plugin-name" href="admin.php?page=performance-kit">' . $name . '</a>';
 	}
 
 	public function section_heading( $title, $description ) {
@@ -191,19 +198,11 @@ class Performance_Kit_Admin {
 	public function woocommerce_checker() {
 		if ( class_exists( 'WooCommerce' ) ) {
 			$this->kit_woocommerce = true;
+			return true;
 		} else {
 			$this->kit_woocommerce = false;
+			return false;
 		}
-		return $this->kit_woocommerce;
-	}
-
-	public function performance_kit_error_notice() {
-		?>
-	<div class="error notice">
-		<p><?php _e( 'There has been an error. Bummer!', 'performance-kit' ); ?></p>
-	</div>
-		<?php
-		add_action( 'admin_notices', 'performance_kit_error_notice' );
 	}
 
 	public function performance_kit_success_notice() {
@@ -223,7 +222,7 @@ class Performance_Kit_Admin {
 
 	public function performance_kit_option_update( $button_name, $kit ) {
 		if ( ! empty( $_POST ) && array_key_exists( $button_name, $_POST ) ) {
-			
+
 			foreach ( $kit as $kit_wordpress_option ) {
 
 				if ( ! isset( $_POST[ $kit_wordpress_option['function'] ] ) ) {
@@ -245,31 +244,38 @@ class Performance_Kit_Admin {
 	}
 
 	public function performance_kit_section( $title, $description, $section, $array, $key ) {
-		?>
-			<div id="<?php echo $section; ?>" class="pk-section">
-				<?php
+
+		echo '<div id="' . $section . '" class="pk-section">';
+
+		switch ( $section ) :
+			case 'kit_config_options':
 				$this->section_heading( $title, $description );
-
-				// Warning for wp-config options
-				if ( $section === 'kit_config_options' && file_exists( ABSPATH . 'wp-config.php' ) === false ) {
-					echo '<div class="notification">';
-					echo file_get_contents( plugin_dir_path( PERFORMANCE_KIT_FILE ) . '/admin/assets/icons/alert.svg' );
-					echo __(
-						'Seems like your wp-config.php is not in the default place and this section requires a standard wp-config placement. <a target="_blank" href="mailto:hello@pressx.co">Contact us for more information.</a>',
-						'performance-kit'
-					);
-					echo '</div>';
-				}
-
-				if ( $section === 'kit_woocommerce_options' ) {
-					include 'partials/kit-woocommerce.php';
-				}
-
+				echo '<div class="notification">';
+				echo file_get_contents( plugin_dir_path( PERFORMANCE_KIT_FILE ) . '/admin/assets/icons/alert.svg' );
+				echo __(
+					'Seems like your wp-config.php is not in the default place and this section requires a standard wp-config placement. <a target="_blank" href="mailto:hello@pressx.co">Contact us for more information.</a>',
+					'performance-kit'
+				);
+				echo '</div>';
 				$this->performance_kit_list_layout( $array, $key );
-				submit_button( __( 'Save Changes', 'performance-kit' ), 'primary kit-button', 'submit-disable-scripts', true );
-				?>
-			</div>
-		<?php
+				break;
+			case 'kit_woocommerce_options':
+				$this->section_heading( $title, $description );
+				include 'partials/kit-woocommerce.php';
+				echo '<div class="woocommerce_wrapper">';
+				$this->performance_kit_list_layout( $array, $key );
+				echo '</div>';
+				break;
+			default:
+				$this->section_heading( $title, $description );
+				$this->performance_kit_list_layout( $array, $key );
+				break;
+		endswitch;
+
+		submit_button( __( 'Save Changes', 'performance-kit' ), 'primary kit-button', 'submit-disable-scripts', true );
+
+		echo '</div>';
+
 	}
 
 }

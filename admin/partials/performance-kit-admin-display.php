@@ -26,7 +26,7 @@ settings_errors();
 		echo file_get_contents( plugin_dir_path( PERFORMANCE_KIT_FILE ) . '/admin/assets/icons/logo.svg');
 		echo $this->display_plugin_name(); 
 		?>
-		<a href="/">
+		<a target="_blank" href="https://wordpress.org/support/plugin/performance-kit/">
 			<span class="version"><?php echo 'v' . $this->version; ?></span>
 		</a>
 		<div class="title-nav">
@@ -35,7 +35,7 @@ settings_errors();
 				<?php echo file_get_contents( plugin_dir_path( PERFORMANCE_KIT_FILE ) . '/admin/assets/icons/restore.svg'); ?>
 				<span><?php echo __( 'Import / Export', 'performance-kit' ); ?></span>
 			</a>
-			<a href="/">
+			<a href="mailto:info@pressx.co">
 				<?php echo file_get_contents( plugin_dir_path( PERFORMANCE_KIT_FILE ) . '/admin/assets/icons/support.svg'); ?>
 				<span><?php echo __( 'Support', 'performance-kit' ); ?></span>
 			</a>

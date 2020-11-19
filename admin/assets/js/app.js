@@ -29,4 +29,13 @@
 	 * practising this, we should strive to set a better example in our own work.
 	 */
 
+	$(document).ready(function () {
+
+		if ($('.woocommerce_wrapper').hasClass('active')) {
+			$('#kit_woocommerce_options #submit-disable-scripts').prop("disabled", true);
+		}
+		
+	});
+
+
 })(jQuery);

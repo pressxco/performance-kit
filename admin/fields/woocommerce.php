@@ -83,8 +83,7 @@ $init->options_setup();
 
 ?>
 
-
-<?php if($init->woocommerce_checker() == null) {
+<?php if($init->woocommerce_checker() === false) {
     ?>
 
 <script>

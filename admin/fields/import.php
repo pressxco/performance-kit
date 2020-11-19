@@ -67,7 +67,9 @@ class Performance_Kit_Import_Export extends Performance_Kit_Admin {
 
 			<div id="misc-options" class="pk-section">
 				<?php $this->section_heading( 'Export Options', 'Modify the WordPress Core functionalities...' ); ?>
-				<textarea id="ecode" class="kit-option kit_option_export" name="export_code" rows="10"><?php $this->setting_export(); ?></textarea>
+				<div class="kit-option">
+					<textarea id="ecode" class="kit-option kit_option_export" name="export_code" rows="10"><?php $this->setting_export(); ?></textarea>
+				</div>
 				<p class="submit">
 					<button class="button button-primary kit-button" onclick="copyClipboard()"> Copy to clipboard</button>
 				</p>
@@ -80,7 +82,9 @@ class Performance_Kit_Import_Export extends Performance_Kit_Admin {
 			echo '<div id="misc-options" class="pk-section">';
 			$this->section_heading( 'Import Options', 'Modify the WordPress Core functionalities...' );
 			?>
-			<textarea class="kit-option kit_option_impot" rows="10" name="import_code"></textarea>
+			<div class="kit-option">
+				<textarea class="kit-option kit_option_impot" rows="10" name="import_code"></textarea>
+			</div>
 			
 		<?php
 				$this->performance_kit_import_process();
