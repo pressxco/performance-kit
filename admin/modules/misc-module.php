@@ -22,7 +22,7 @@
 
 if ( ! empty( get_option( 'kit-svg-support' ) ) && get_option( 'kit-svg-support' ) == '1' ) {
 
-	function my_custom_mime_types( $mimes ) {
+	function kit_mime_types( $mimes ) {
 
 		// New allowed mime types.
 		$mimes['svg']  = 'image/svg+xml';
@@ -31,7 +31,46 @@ if ( ! empty( get_option( 'kit-svg-support' ) ) && get_option( 'kit-svg-support'
 		return $mimes;
 	}
 
-	add_filter( 'upload_mimes', 'my_custom_mime_types' );
+	add_filter( 'upload_mimes', 'kit_mime_types', 99 );
+
+	function kit_svgs_upload_check( $checked, $file, $filename, $mimes ) {
+
+		if ( ! $checked['type'] ) {
+
+			$check_filetype		= wp_check_filetype( $filename, $mimes );
+			$ext				= $check_filetype['ext'];
+			$type				= $check_filetype['type'];
+			$proper_filename	= $filename;
+
+			if ( $type && 0 === strpos( $type, 'image/' ) && $ext !== 'svg' ) {
+				$ext = $type = false;
+			}
+
+			$checked = compact( 'ext','type','proper_filename' );
+		}
+
+		return $checked;
+
+	}
+	add_filter( 'wp_check_filetype_and_ext', 'kit_svgs_upload_check', 10, 4 );
+
+	function kit_vgs_allow_svg_upload( $data, $file, $filename, $mimes ) {
+
+		global $wp_version;
+		if ( $wp_version !== '4.7.1' || $wp_version !== '4.7.2' ) {
+			return $data;
+		}
+
+		$filetype = wp_check_filetype( $filename, $mimes );
+
+		return [
+			'ext'				=> $filetype['ext'],
+			'type'				=> $filetype['type'],
+			'proper_filename'	=> $data['proper_filename']
+		];
+
+	}
+	add_filter( 'wp_check_filetype_and_ext', 'kit_vgs_allow_svg_upload', 10, 4 );
 
 }
 
