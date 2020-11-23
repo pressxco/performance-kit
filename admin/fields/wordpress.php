@@ -324,6 +324,8 @@ class Performance_Kit_Wordpress_Options extends Performance_Kit_Admin {
 					'kit_option'
 				);
 
+				$this->performance_kit_catch();
+
 			?>
 
 		</form>

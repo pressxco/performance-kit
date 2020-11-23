@@ -214,6 +214,12 @@ class Performance_Kit_Admin {
 		add_action( 'admin_notices', 'performance_kit_succes_notice' );
 	}
 
+	public function performance_kit_catch() {
+		if($_POST) {
+			$this->performance_kit_success_notice();
+		}
+	}
+
 	/**
 	 * Update the Performance Kit options.
 	 *
