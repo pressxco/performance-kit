@@ -644,60 +644,60 @@ if ( file_exists( ABSPATH . 'wp-config.php' ) && is_writable( ABSPATH . 'wp-conf
 	// Modify WP_CRON
 	if ( get_option( 'kit-wp-cron' ) == '1' ) {
 		if ( $config_transformer->exists( 'constant', 'DISABLE_WP_CRON' ) ) {
-			$config_transformer->update( 'constant', 'DISABLE_WP_CRON', 'true' );
+			$config_transformer->update( 'constant', 'DISABLE_WP_CRON', 'true', array( 'raw' => true, 'normalize' => true ) );
 		} else {
-			$config_transformer->add( 'constant', 'DISABLE_WP_CRON', 'true', array( 'anchor' => "/* That's all, stop editing! Happy blogging." ) );
+			$config_transformer->add( 'constant', 'DISABLE_WP_CRON', 'true', array( 'raw' => true, 'normalize' => true ) );
 		}
 	}
 
 	if ( get_option( 'kit-wp-cron' ) == '0' ) {
 		if ( $config_transformer->exists( 'constant', 'DISABLE_WP_CRON' ) ) {
-			$config_transformer->update( 'constant', 'DISABLE_WP_CRON', 'false' );
+			$config_transformer->update( 'constant', 'DISABLE_WP_CRON', 'false', array( 'raw' => true, 'normalize' => true ) );
 		}
 	}
 
 	// Modify WP_CACHE
 	if ( get_option( 'kit-wp-cache' ) == '1' ) {
-		$config_transformer->update( 'constant', 'WP_CACHE', 'true' );
+		$config_transformer->update( 'constant', 'WP_CACHE', 'true', array( 'raw' => true, 'normalize' => true ) );
 	} else {
 		if ( $config_transformer->exists( 'constant', 'WP_CACHE' ) ) {
-			$config_transformer->update( 'constant', 'WP_CACHE', 'false' );
+			$config_transformer->update( 'constant', 'WP_CACHE', 'false', array( 'raw' => true, 'normalize' => true ) );
 		}
 	}
 
 	// Modify CONCATENATE_SCRIPTS
 	if ( get_option( 'kit-wp-concatenate' ) == '1' ) {
-		$config_transformer->update( 'constant', 'CONCATENATE_SCRIPTS', 'true' );
+		$config_transformer->update( 'constant', 'CONCATENATE_SCRIPTS', 'true', array( 'raw' => true, 'normalize' => true ) );
 	} else {
 		if ( $config_transformer->exists( 'constant', 'CONCATENATE_SCRIPTS' ) ) {
-			$config_transformer->update( 'constant', 'CONCATENATE_SCRIPTS', 'false' );
+			$config_transformer->update( 'constant', 'CONCATENATE_SCRIPTS', 'false', array( 'raw' => true, 'normalize' => true ) );
 		}
 	}
 
 	// Modify COMPRESS_CSS
 	if ( get_option( 'kit-wp-compress-css' ) == '1' ) {
-		$config_transformer->update( 'constant', 'COMPRESS_CSS', 'true' );
+		$config_transformer->update( 'constant', 'COMPRESS_CSS', 'true', array( 'raw' => true, 'normalize' => true ) );
 	} else {
 		if ( $config_transformer->exists( 'constant', 'COMPRESS_CSS' ) ) {
-			$config_transformer->update( 'constant', 'COMPRESS_CSS', 'false' );
+			$config_transformer->update( 'constant', 'COMPRESS_CSS', 'false', array( 'raw' => true, 'normalize' => true ) );
 		}
 	}
 
 	// Modify COMPRESS_SCRIPTS
 	if ( get_option( 'wordpress-compress-scripts' ) == '1' ) {
-		$config_transformer->update( 'constant', 'COMPRESS_SCRIPTS', 'true' );
+		$config_transformer->update( 'constant', 'COMPRESS_SCRIPTS', 'true', array( 'raw' => true, 'normalize' => true ) );
 	} else {
 		if ( $config_transformer->exists( 'constant', 'COMPRESS_SCRIPTS' ) ) {
-			$config_transformer->update( 'constant', 'COMPRESS_SCRIPTS', 'false' );
+			$config_transformer->update( 'constant', 'COMPRESS_SCRIPTS', 'false', array( 'raw' => true, 'normalize' => true ) );
 		}
 	}
 
 	// Modify ENFORCE_GZIP
 	if ( get_option( 'kit-wp-gzip' ) == '1' ) {
-		$config_transformer->update( 'constant', 'ENFORCE_GZIP', 'true' );
+		$config_transformer->update( 'constant', 'ENFORCE_GZIP', 'true', array( 'raw' => true, 'normalize' => true ) );
 	} else {
 		if ( $config_transformer->exists( 'constant', 'ENFORCE_GZIP' ) ) {
-			$config_transformer->update( 'constant', 'ENFORCE_GZIP', 'false' );
+			$config_transformer->update( 'constant', 'ENFORCE_GZIP', 'false', array( 'raw' => true, 'normalize' => true ) );
 		}
 	}
 }
