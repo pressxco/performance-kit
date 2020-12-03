@@ -11,7 +11,6 @@
  * @subpackage Performance_Kit/admin/modules
  */
 
-
 /**
  * Disable XML-RPC
  *
@@ -478,9 +477,9 @@ if ( ! empty( get_option( 'kit-comment-system' ) ) && get_option( 'kit-comment-s
 
 			if ( post_type_supports( $post_type, 'comments' ) ) {
 
-				 remove_post_type_support( $post_type, 'comments' );
+				remove_post_type_support( $post_type, 'comments' );
 
-				 remove_post_type_support( $post_type, 'trackbacks' );
+				remove_post_type_support( $post_type, 'trackbacks' );
 			}
 		}
 	}

@@ -10,7 +10,6 @@
  * @package    Performance_Kit
  * @subpackage Performance_Kit/admin/fields
  */
-
 class Performance_Kit_Wordpress_Options extends Performance_Kit_Admin {
 
 	public function __construct() {
@@ -338,6 +337,3 @@ class Performance_Kit_Wordpress_Options extends Performance_Kit_Admin {
 // Initialize
 $init = new Performance_Kit_Wordpress_Options();
 $init->options_setup();
-
-
-?>

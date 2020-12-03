@@ -1,5 +1,4 @@
 <?php
-
 /**
  * The plugin bootstrap file
  *
@@ -127,10 +126,12 @@ save_performance_kit_version();
 /**
  * Redirect after plugin activation.
  *
+ * @param type string $plugin returns the activated plugin basename.
+ *
  * @since 1.0.0
  */
 function performance_kit_activation_redirect( $plugin ) {
-	if ( $plugin === plugin_basename( __FILE__ ) ) {
+	if ( plugin_basename( __FILE__ ) === $plugin ) {
 		exit( wp_redirect( admin_url( '/admin.php?page=performance-kit' ) ) );
 	}
 }
