@@ -77,19 +77,16 @@ class Performance_Kit_Woocommerce_Options extends Performance_Kit_Admin {
 }
 
 
-// Initialize
+// Initialize.
 $init = new Performance_Kit_Woocommerce_Options();
 $init->options_setup();
 
 ?>
 
-<?php if($init->woocommerce_checker() === false) {
-    ?>
+<?php if ( $init->woocommerce_checker() === false ) { ?>
 
 <script>
 jQuery(".woocommerce_wrapper").addClass('active');
 </script>
 
-    <?php
-}
-?>
+<?php } ?>

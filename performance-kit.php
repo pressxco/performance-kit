@@ -48,7 +48,7 @@ define( 'PERFORMANCE_KIT_FILE', __FILE__ );
  * admin-specific hooks, and public-facing site hooks.
  */
 
-require plugin_dir_path( __FILE__ ) . 'includes/class-performance-kit.php';
+require plugin_dir_path( PERFORMANCE_KIT_FILE ) . 'includes/class-performance-kit.php';
 
 
 /**
@@ -67,30 +67,30 @@ if ( ! class_exists( 'WPConfigTransformer' ) ) {
  * This action is documented in includes/class-performance-kit-activator.php
  */
 function activate_performance_kit() {
-	include_once plugin_dir_path( __FILE__ ) . 'includes/class-performance-kit-activator.php';
+	include_once plugin_dir_path( PERFORMANCE_KIT_FILE ) . 'includes/class-performance-kit-activator.php';
 	Performance_Kit_Activator::activate();
 }
-register_activation_hook( __FILE__, 'activate_performance_kit' );
+register_activation_hook( PERFORMANCE_KIT_FILE, 'activate_performance_kit' );
 
 /**
  * The code that runs during plugin deactivation.
  * This action is documented in includes/class-performance-kit-deactivator.php
  */
 function deactivate_performance_kit() {
-	include_once plugin_dir_path( __FILE__ ) . 'includes/class-performance-kit-deactivator.php';
+	include_once plugin_dir_path( PERFORMANCE_KIT_FILE ) . 'includes/class-performance-kit-deactivator.php';
 	Performance_Kit_Deactivator::deactivate();
 }
-register_deactivation_hook( __FILE__, 'deactivate_performance_kit' );
+register_deactivation_hook( PERFORMANCE_KIT_FILE, 'deactivate_performance_kit' );
 
 /**
  * The code that runs during plugin uninstallation.
  * This action is documented in includes/class-performance-kit-uninstall.php
  */
 function uninstall_performance_kit() {
-	include_once plugin_dir_path( __FILE__ ) . 'includes/class-performance-kit-uninstall.php';
+	include_once plugin_dir_path( PERFORMANCE_KIT_FILE ) . 'includes/class-performance-kit-uninstall.php';
 	Performance_Kit_Uninstall::uninstall();
 }
-register_uninstall_hook( __FILE__, 'uninstall_performance_kit' );
+register_uninstall_hook( PERFORMANCE_KIT_FILE, 'uninstall_performance_kit' );
 
 /**
  * Begins execution of the plugin.
@@ -108,6 +108,11 @@ function run_performance_kit() {
 }
 run_performance_kit();
 
+/**
+ * Save the plugin version.
+ *
+ * @since 1.0.0
+ */
 function save_performance_kit_version() {
 
 	if ( get_option( 'performance_kit_version' ) ) {
@@ -119,10 +124,14 @@ function save_performance_kit_version() {
 }
 save_performance_kit_version();
 
+/**
+ * Redirect after plugin activation.
+ *
+ * @since 1.0.0
+ */
 function performance_kit_activation_redirect( $plugin ) {
-	if ( $plugin == plugin_basename( __FILE__ ) ) {
+	if ( $plugin === plugin_basename( __FILE__ ) ) {
 		exit( wp_redirect( admin_url( '/admin.php?page=performance-kit' ) ) );
 	}
 }
 add_action( 'activated_plugin', 'performance_kit_activation_redirect' );
-
