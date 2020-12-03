@@ -71,7 +71,7 @@ class Performance_Kit_CDN_Options extends Performance_Kit_Admin {
 
 				$this->performance_kit_section(
 					'WordPress CDN Options',
-					'Setup, enable and configure a content delivery network for your website...',
+					'Setup, enable and configure a content delivery network for your website',
 					'kit_cdn_options', 
 					$this->kit_cdn_options,
 					'kit_option'

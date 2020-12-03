@@ -66,7 +66,7 @@ class Performance_Kit_Misc_Options extends Performance_Kit_Admin {
 
 				$this->performance_kit_section(
 					'WordPress Misc Options',
-					'Adjust the WordPress Miscellaneous options for better performance...',
+					'Adjust the WordPress Miscellaneous options for better performance',
 					'kit_misc_options', 
 					$this->kit_misc_options,
 					'kit_option'

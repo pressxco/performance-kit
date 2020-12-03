@@ -66,7 +66,7 @@ class Performance_Kit_Import_Export extends Performance_Kit_Admin {
 		?>
 
 			<div id="misc-options" class="pk-section">
-				<?php $this->section_heading( 'Export Options', 'Modify the WordPress Core functionalities...' ); ?>
+				<?php $this->section_heading( 'Export Options', 'Export all your settings in Performance Kit' ); ?>
 				<div class="kit-option">
 					<textarea id="ecode" class="kit-option kit_option_export" name="export_code" rows="10"><?php $this->setting_export(); ?></textarea>
 				</div>
@@ -80,7 +80,7 @@ class Performance_Kit_Import_Export extends Performance_Kit_Admin {
 			<?php
 			wp_nonce_field( 'performance_kit_update', 'performance_kit_form' );
 			echo '<div id="misc-options" class="pk-section">';
-			$this->section_heading( 'Import Options', 'Modify the WordPress Core functionalities...' );
+			$this->section_heading( 'Import Options', 'Import your Performance Kit settings' );
 			?>
 			<div class="kit-option">
 				<textarea class="kit-option kit_option_impot" rows="10" name="import_code"></textarea>

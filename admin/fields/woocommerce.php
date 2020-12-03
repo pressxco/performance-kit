@@ -63,7 +63,7 @@ class Performance_Kit_Woocommerce_Options extends Performance_Kit_Admin {
 				
 				$this->performance_kit_section(
 					'WooCommerce Options',
-					'Modify the WooCommerce assets and functions for better performance...',
+					'Modify the WooCommerce assets and functions for better performance',
 					'kit_woocommerce_options', 
 					$this->kit_woocommerce_options,
 					'kit_option'

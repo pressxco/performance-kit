@@ -81,7 +81,7 @@ class Performance_Kit_Analytics_Options extends Performance_Kit_Admin {
 
 				$this->performance_kit_section(
 					'Analytics Options',
-					'Setup, enable and modify the analytics for your website...',
+					'Setup, enable and modify the analytics for your website',
 					'kit_analytics_options', 
 					$this->kit_analytics_options,
 					'kit_option'
