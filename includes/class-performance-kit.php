@@ -1,5 +1,4 @@
 <?php
-
 /**
  * The file that defines the core plugin class
  *
@@ -35,7 +34,7 @@ class Performance_Kit {
 	 *
 	 * @since    1.0.0
 	 * @access   protected
-	 * @var      Performance_Kit_Loader    $loader    Maintains and registers all hooks for the plugin.
+	 * @var      class    $loader    Maintains and registers all hooks for the plugin.
 	 */
 	protected $loader;
 
@@ -66,6 +65,7 @@ class Performance_Kit {
 	 * @since    1.0.0
 	 */
 	public function __construct() {
+
 		if ( defined( 'PERFORMANCE_KIT_VERSION' ) ) {
 			$this->version = PERFORMANCE_KIT_VERSION;
 		} else {
@@ -161,10 +161,10 @@ class Performance_Kit {
 
 		$this->loader->add_action( 'admin_footer', $plugin_admin, 'add_javascript' );
 
-		// Add menu item
+		// Add menu item.
 		$this->loader->add_action( 'admin_menu', $plugin_admin, 'add_plugin_admin_menu' );
 
-		// Add Settings link to the plugin
+		// Add Settings link to the plugin.
 		$plugin_basename = plugin_basename( plugin_dir_path( __DIR__ ) . $this->plugin_name . '.php' );
 
 		$this->loader->add_filter( 'plugin_action_links_' . $plugin_basename, $plugin_admin, 'add_action_links' );

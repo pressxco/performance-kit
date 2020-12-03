@@ -11,7 +11,6 @@
  * @subpackage Performance_Kit/admin/modules
  */
 
-
 /**
  * CDN Rewrite URLS
  *
@@ -20,7 +19,7 @@
  * -----------------------------------------------------------------------------
  */
 
-if ( get_option( 'kit-cdn-rewrite' ) == '1' && ! empty( get_option( 'kit-cdn-url' ) ) ) {
+if ( get_option( 'kit-cdn-rewrite' ) === '1' && ! empty( get_option( 'kit-cdn-url' ) ) ) {
 	add_action( 'template_redirect', 'kit_cdn_rewrite' );
 }
 

@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Define the internationalization functionality
  *
@@ -41,7 +40,6 @@ class Performance_Kit_i18n {
 		);
 
 	}
-
 
 
 }

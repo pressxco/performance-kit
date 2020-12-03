@@ -11,7 +11,6 @@
  * @subpackage Performance_Kit/admin/modules
  */
 
-
 /**
  * Disable Password Strength
  *
@@ -104,7 +103,7 @@ function kit_disable_woocommerce_scripts() {
 
 			// Dequue Cart Fragmentation Script
 			if ( empty( get_option( 'kit-woo-cart' ) ) || get_option( 'kit-woo-cart' ) == '0' ) {
-				   wp_dequeue_script( 'wc-cart-fragments' );
+				wp_dequeue_script( 'wc-cart-fragments' );
 			}
 		}
 	}

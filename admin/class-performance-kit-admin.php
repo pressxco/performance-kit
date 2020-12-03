@@ -1,5 +1,4 @@
 <?php
-
 /**
  * The admin-specific functionality of the plugin.
  *
@@ -20,7 +19,6 @@
  * @subpackage Performance_Kit/admin
  * @author     PressX <info@pressx.co>
  */
-
 class Performance_Kit_Admin {
 
 
@@ -102,6 +100,11 @@ class Performance_Kit_Admin {
 
 	}
 
+	/**
+	 * Add custom jQuery script to the admin panel.
+	 *
+	 * @since 1.0.0
+	 */
 	public function add_javascript() {
 		?>
 			<script>
@@ -148,11 +151,12 @@ class Performance_Kit_Admin {
 	/**
 	 * Add settings action link to the plugins page.
 	 *
+	 * @param array $links Returns the plugin links.
 	 * @since 1.0.0
 	 */
 	public function add_action_links( $links ) {
 
-		/*
+		/**
 		*  Documentation : https://codex.wordpress.org/Plugin_API/Filter_Reference/plugin_action_links_(plugin_file_name)
 		*/
 		$settings_link = array( '<a href="' . admin_url( 'options-general.php?page=' . $this->plugin_name ) . '">' . __( 'Settings', $this->plugin_name ) . '</a>' );
@@ -177,7 +181,6 @@ class Performance_Kit_Admin {
 	 *
 	 * @since 1.0.0
 	 */
-
 	public function display_plugin_name() {
 		$name = str_replace( '-', ' ', $this->plugin_name );
 		$name = ucwords( $name );
@@ -225,7 +228,6 @@ class Performance_Kit_Admin {
 	 *
 	 * @since 1.0.0
 	 */
-
 	public function performance_kit_option_update( $button_name, $kit ) {
 		if ( ! empty( $_POST ) && array_key_exists( $button_name, $_POST ) ) {
 

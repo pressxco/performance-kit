@@ -126,13 +126,14 @@ save_performance_kit_version();
 /**
  * Redirect after plugin activation.
  *
- * @param type string $plugin returns the activated plugin basename.
+ * @param string $plugin Returns the activated plugin basename.
  *
  * @since 1.0.0
  */
 function performance_kit_activation_redirect( $plugin ) {
 	if ( plugin_basename( __FILE__ ) === $plugin ) {
-		exit( wp_redirect( admin_url( '/admin.php?page=performance-kit' ) ) );
+		wp_safe_redirect( admin_url( '/admin.php?page=performance-kit' ) );
+		exit;
 	}
 }
 add_action( 'activated_plugin', 'performance_kit_activation_redirect' );
