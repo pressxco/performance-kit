@@ -256,13 +256,19 @@ class Performance_Kit_Admin {
 		switch ( $section ) :
 			case 'kit_config_options':
 				$this->section_heading( $title, $description );
-				echo '<div class="notification">';
-				echo file_get_contents( plugin_dir_path( PERFORMANCE_KIT_FILE ) . '/admin/assets/icons/alert.svg' );
-				echo __(
-					'Seems like your wp-config.php is not in the default place and this section requires a standard wp-config placement. <a target="_blank" href="mailto:hello@pressx.co">Contact us for more information.</a>',
-					'performance-kit'
-				);
-				echo '</div>';
+
+				if ( ! file_exists(ABSPATH . "wp-config.php") ) {
+
+					echo '<div class="notification">';
+					echo file_get_contents( plugin_dir_path( PERFORMANCE_KIT_FILE ) . '/admin/assets/icons/alert.svg' );
+					echo __(
+						'Seems like your wp-config.php is not in the default place and this section requires a standard wp-config placement. <a target="_blank" href="mailto:hello@pressx.co">Contact us for more information.</a>',
+						'performance-kit'
+					);
+					echo '</div>';
+
+				}
+
 				$this->performance_kit_list_layout( $array, $key );
 				break;
 			case 'kit_woocommerce_options':
