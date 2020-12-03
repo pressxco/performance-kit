@@ -184,12 +184,13 @@ class Performance_Kit_Wordpress_Options extends Performance_Kit_Admin {
 					'Disable'  => '0',
 				),
 			),
-			'test-8'              => array(
+			'jquery-cdn'              => array(
 				'title'       => 'Move jQuery to Global CDN',
 				'description' => __( 'Move default jQuery to one of the Global CDNs.', 'performance-kit' ),
 				'function'    => 'kit-jquery',
 				'type'        => 'select',
 				'options'     => array(
+					'Default'    => 'default',
 					'Google CDN' => 'GOOGLE',
 					'CDNJS'      => 'CDNJS',
 					'jsDelivr'   => 'JSDELIVER',

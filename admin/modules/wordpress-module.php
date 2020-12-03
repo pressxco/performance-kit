@@ -422,6 +422,9 @@ if ( get_option( 'kit-jquery' ) ) {
 
 		global $wp_scripts;
 
+		$the_option = get_option( 'kit-jquery', 'default' );
+		if ($the_option == 'default' ) return;
+
 		if ( isset( $wp_scripts->registered['jquery']->ver ) ) {
 			$ver = $wp_scripts->registered['jquery']->ver;
 			$ver = str_replace( '-wp', '', $ver );
@@ -429,7 +432,7 @@ if ( get_option( 'kit-jquery' ) ) {
 			$ver = '1.12.4';
 		}
 
-		if ( get_option( 'kit-jquery' ) == 'GOOGLE' ) {
+		if ( $the_option == 'GOOGLE' ) {
 
 			wp_deregister_script( 'jquery' );
 
@@ -437,7 +440,7 @@ if ( get_option( 'kit-jquery' ) ) {
 
 		}
 
-		if ( get_option( 'kit-jquery' ) == 'CDNJS' ) {
+		else if ( $the_option == 'CDNJS' ) {
 
 			wp_deregister_script( 'jquery' );
 
@@ -445,7 +448,7 @@ if ( get_option( 'kit-jquery' ) ) {
 
 		}
 
-		if ( get_option( 'kit-jquery' ) == 'JSDELIVER' ) {
+		else if ( $the_option == 'JSDELIVER' ) {
 
 			wp_deregister_script( 'jquery' );
 
