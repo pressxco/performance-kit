@@ -152,8 +152,8 @@ class Performance_Kit_Wordpress_Options extends Performance_Kit_Admin {
 				'function'    => 'kit-revisions',
 				'type'        => 'select',
 				'options'     => array(
-					'Default',
-					'Disable Post Revisions',
+					'Default'  => '-1',
+					'Disable Post Revisions'   => '0',
 					'1'  => '1',
 					'2'  => '2',
 					'3'  => '3',
