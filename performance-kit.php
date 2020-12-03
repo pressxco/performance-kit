@@ -50,6 +50,12 @@ define( 'PERFORMANCE_KIT_FILE', __FILE__ );
 
 require plugin_dir_path( __FILE__ ) . 'includes/class-performance-kit.php';
 
+
+/**
+ * The wp-config.php file transformer class.
+ * This will allow us to add/update constants and variables in the config file.
+ */
+
 if ( ! class_exists( 'WPConfigTransformer' ) ) {
 
 	require plugin_dir_path( __FILE__ ) . 'admin/inc/wp-config-transformer/WPConfigTransformer.php';
@@ -64,6 +70,7 @@ function activate_performance_kit() {
 	include_once plugin_dir_path( __FILE__ ) . 'includes/class-performance-kit-activator.php';
 	Performance_Kit_Activator::activate();
 }
+register_activation_hook( __FILE__, 'activate_performance_kit' );
 
 /**
  * The code that runs during plugin deactivation.
@@ -73,6 +80,7 @@ function deactivate_performance_kit() {
 	include_once plugin_dir_path( __FILE__ ) . 'includes/class-performance-kit-deactivator.php';
 	Performance_Kit_Deactivator::deactivate();
 }
+register_deactivation_hook( __FILE__, 'deactivate_performance_kit' );
 
 /**
  * The code that runs during plugin uninstallation.
@@ -82,10 +90,7 @@ function uninstall_performance_kit() {
 	include_once plugin_dir_path( __FILE__ ) . 'includes/class-performance-kit-uninstall.php';
 	Performance_Kit_Uninstall::uninstall();
 }
-
-register_activation_hook( __FILE__, 'activate_performance_kit' );
-register_deactivation_hook( __FILE__, 'deactivate_performance_kit' );
-
+register_uninstall_hook( __FILE__, 'uninstall_performance_kit' );
 
 /**
  * Begins execution of the plugin.
