@@ -95,8 +95,6 @@ class Performance_Kit_Analytics_Options extends Performance_Kit_Admin {
 	}
 }
 
-// Initialize
+// Initialize.
 $init = new Performance_Kit_Analytics_Options();
 $init->options_setup();
-
-?>

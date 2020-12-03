@@ -1,4 +1,13 @@
 <?php
+/**
+ * Fired during plugin uninstallation
+ *
+ * @link       https://pressx.co
+ * @since      1.0.0
+ *
+ * @package    Performance_Kit
+ * @subpackage Performance_Kit/includes
+ */
 
 /**
  * Fired during plugin uninstallation.
@@ -23,7 +32,7 @@ class Performance_Kit_Uninstall {
 
 		$performance_kit_options = wp_load_alloptions();
 		$performance_kit_array   = array();
-	
+
 		foreach ( $performance_kit_options as $name => $value ) {
 			if ( stristr( $name, 'kit-' ) ) {
 					$performance_kit_array[ $name ] = $value;
