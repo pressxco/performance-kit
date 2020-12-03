@@ -208,7 +208,7 @@ class Performance_Kit_Admin {
 	public function performance_kit_success_notice() {
 		?>
 		<div class="updated">
-		<p><?php echo __( 'Your fields are updated!', 'performance-kit' ); ?></p>
+		<p><?php echo __( 'Your settings are updated!', 'performance-kit' ); ?></p>
 		</div>
 		<?php
 		add_action( 'admin_notices', 'performance_kit_succes_notice' );
