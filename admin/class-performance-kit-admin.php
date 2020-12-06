@@ -160,8 +160,7 @@ class Performance_Kit_Admin {
 		*  Documentation : https://codex.wordpress.org/Plugin_API/Filter_Reference/plugin_action_links_(plugin_file_name)
 		*/
 		$settings_link = array( '<a href="' . admin_url( 'options-general.php?page=' . $this->plugin_name ) . '">' . __( 'Settings', $this->plugin_name ) . '</a>' );
-		$pro_link      = array( '<a href="' . admin_url( 'options-general.php?page=' . $this->plugin_name ) . '">' . __( 'Go Pro', $this->plugin_name ) . '</a>' );
-		return array_merge( $settings_link, $pro_link, $links );
+		return array_merge( $settings_link, $links );
 
 	}
 
