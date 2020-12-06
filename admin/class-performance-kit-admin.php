@@ -259,7 +259,7 @@ class Performance_Kit_Admin {
 			case 'kit_config_options':
 				$this->section_heading( $title, $description );
 
-				if ( ! file_exists(ABSPATH . "wp-config.php") ) {
+				if ( ! file_exists( ABSPATH . "wp-config.php" ) || ! is_writable( ABSPATH . "wp-config.php" ) ) {
 
 					echo '<div class="notification">';
 					echo file_get_contents( plugin_dir_path( PERFORMANCE_KIT_FILE ) . '/admin/assets/icons/alert.svg' );
