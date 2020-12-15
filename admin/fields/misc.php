@@ -70,7 +70,9 @@ class Performance_Kit_Misc_Options extends Performance_Kit_Admin {
 					'kit_misc_options', 
 					$this->kit_misc_options,
 					'kit_option'
-				);				
+        );
+        
+        $this->performance_kit_catch();
 
 			?>
 

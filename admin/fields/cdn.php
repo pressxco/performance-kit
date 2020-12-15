@@ -75,7 +75,9 @@ class Performance_Kit_CDN_Options extends Performance_Kit_Admin {
 					'kit_cdn_options', 
 					$this->kit_cdn_options,
 					'kit_option'
-				);
+        );
+        
+        $this->performance_kit_catch();
 
 			?>
 

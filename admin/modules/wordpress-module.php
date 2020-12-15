@@ -403,63 +403,6 @@ function performance_kit_admin_notice_autosave_interval() {
 
 
 /**
- * Move jQuery to CDN
- *
- * @since 1.0.0
- * -----------------------------------------------------------------------------
- * -----------------------------------------------------------------------------
- */
-
-if ( get_option( 'kit-jquery' ) ) {
-
-	add_action( 'init', 'use_jquery_from_google' );
-
-	function use_jquery_from_google() {
-		if ( is_admin() || in_array($GLOBALS['pagenow'], array( 'wp-login.php', 'wp-register.php' ), true) ) {
-			return;
-		}
-
-		global $wp_scripts;
-
-		$the_option = get_option( 'kit-jquery', 'default' );
-		if ($the_option == 'default' ) return;
-
-		if ( isset( $wp_scripts->registered['jquery']->ver ) ) {
-			$ver = $wp_scripts->registered['jquery']->ver;
-			$ver = str_replace( '-wp', '', $ver );
-		} else {
-			$ver = '1.12.4';
-		}
-
-		if ( $the_option == 'GOOGLE' ) {
-
-			wp_deregister_script( 'jquery' );
-
-			wp_register_script( 'jquery', "//ajax.googleapis.com/ajax/libs/jquery/$ver/jquery.min.js", false, $ver );
-
-		}
-
-		else if ( $the_option == 'CDNJS' ) {
-
-			wp_deregister_script( 'jquery' );
-
-			wp_register_script( 'jquery', "//cdnjs.cloudflare.com/ajax/libs/jquery/$ver/jquery.min.js", false, $ver );
-
-		}
-
-		else if ( $the_option == 'JSDELIVER' ) {
-
-			wp_deregister_script( 'jquery' );
-
-			wp_register_script( 'jquery', "//cdn.jsdelivr.net/npm/jquery@$ver/dist/jquery.min.js", false, $ver );
-
-		}
-
-	}
-}
-
-
-/**
  * Disable Comments
  *
  * @since 1.0.0

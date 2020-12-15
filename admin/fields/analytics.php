@@ -85,7 +85,9 @@ class Performance_Kit_Analytics_Options extends Performance_Kit_Admin {
 					'kit_analytics_options', 
 					$this->kit_analytics_options,
 					'kit_option'
-				);
+        );
+        
+        $this->performance_kit_catch();
 
 			?>
 

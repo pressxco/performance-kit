@@ -14,14 +14,14 @@
 
 <div class="kit-option">
 
-  <label for="<?php echo $key['function']; ?>">
+  <label for="<?php echo esc_html($key['function']); ?>">
 
 	<div class="option-title">
-	  <span><?php echo $key['title']; ?></span>
+	  <span><?php echo esc_html($key['title']); ?></span>
 	  <div class="option-tooltip">
 		<span class="tooltip">?</span>
 		<span class="tooltip-text">
-		  <?php echo $key['description']; ?>
+		  <?php echo esc_html($key['description']); ?>
 		</span>
 	  </div>
 	</div>
@@ -33,8 +33,8 @@
 	  <input 
 		type="checkbox" 
 		class="kit_option" 
-		id="<?php echo $key['function']; ?>"
-		name="<?php echo $key['function']; ?>"
+		id="<?php echo esc_html($key['function']); ?>"
+		name="<?php echo esc_html($key['function']); ?>"
 		value="<?php if ( get_option( $key['function'] ) === '1' ) { echo '1'; } else { echo '0';} ?>" <?php if ( get_option( $key['function'] ) === '1' ) { echo 'checked';} ?> />
 	  <span class="slider round"></span>
 	</div>
@@ -43,10 +43,10 @@
 	// Condition for select boxes
 	elseif ( $key['type'] == 'select' ) : ?>
 	<div class="select">
-	  <select class="custom" name="<?php echo $key['function']; ?>">
+	  <select class="custom" name="<?php echo esc_html($key['function']); ?>">
 		<?php foreach ( $key['options'] as $option => $value ) : ?>
-		<option value="<?php echo $value; ?>" <?php if ( get_option( $key['function'] ) === $value ) { echo 'selected';} ?>>
-			<?php echo $option; ?>
+		<option value="<?php echo esc_html($value); ?>" <?php if ( get_option( $key['function'] ) === $value ) { echo 'selected';} ?>>
+			<?php echo esc_html($option); ?>
 		</option>
 		<?php endforeach; ?>
 	  </select>
@@ -59,10 +59,10 @@
 	  <input 
 	  type="number" 
 	  class="kit_option" 
-	  id="<?php echo $key['function']; ?>"
-	  name="<?php echo $key['function']; ?>" 
+	  id="<?php echo esc_html($key['function']); ?>"
+	  name="<?php echo esc_html($key['function']); ?>" 
 	  value="" 
-	  placeholder="<?php if ( $key['placeholder'] ) { echo $key['placeholder']; } ?>"
+	  placeholder="<?php if ( $key['placeholder'] ) { echo esc_html($key['placeholder']); } ?>"
 	  />
 	</div>
 
@@ -73,10 +73,10 @@
 	  <input 
 		type="text" 
 		class="kit_option" 
-		id="<?php echo $key['function']; ?>" 
-		name="<?php echo $key['function']; ?>"
+		id="<?php echo esc_html($key['function']); ?>" 
+		name="<?php echo esc_html($key['function']); ?>"
 		value="<?php if ( ! empty( get_option( $key['function'] ) ) ) { echo get_option( $key['function'] ); }; ?>" 
-		placeholder="<?php if ( $key['placeholder'] ) { echo $key['placeholder']; } ?>" />
+		placeholder="<?php if ( $key['placeholder'] ) { echo esc_html($key['placeholder']); } ?>" />
 	</div>
 
 	<?php endif; ?>

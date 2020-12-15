@@ -67,8 +67,12 @@ class Performance_Kit_Woocommerce_Options extends Performance_Kit_Admin {
 					'kit_woocommerce_options', 
 					$this->kit_woocommerce_options,
 					'kit_option'
-				);
+        );
+        
+        $this->performance_kit_catch();
+        
 				?>
+        
 
 		</form>
 

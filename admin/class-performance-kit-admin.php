@@ -138,12 +138,12 @@ class Performance_Kit_Admin {
 		 * @link https://codex.wordpress.org/Function_Reference/add_options_page
 		 */
 		add_menu_page(
-			__( 'Performance Kit', 'performance-kit' ),
+			esc_html__( 'Performance Kit', 'performance-kit' ),
 			'Performance Kit',
 			'manage_options',
 			'performance-kit',
 			array( $this, 'display_plugin_setup_page' ),
-			plugins_url( 'performance-kit/admin/assets/icons/flash4.svg' ),
+			plugins_url( 'performance-kit/admin/assets/icons/flash.svg' ),
 			999999999
 		);
 	}
@@ -182,7 +182,8 @@ class Performance_Kit_Admin {
 	 */
 	public function display_plugin_name() {
 		$name = str_replace( '-', ' ', $this->plugin_name );
-		$name = ucwords( $name );
+    $name = ucwords( $name );
+    $name = esc_html( $name );
 		return '<a class="plugin-name" href="admin.php?page=performance-kit">' . $name . '</a>';
 	}
 
@@ -190,8 +191,8 @@ class Performance_Kit_Admin {
 		?>
 
 			<div class="section-title">
-				<h3><?php echo __( $title, 'performance-kit' ); ?></h3>
-				<p><?php echo __( $description, 'performance-kit' ); ?></p>
+				<h3><?php esc_html_e( $title, 'performance-kit' ); ?></h3>
+				<p><?php esc_html_e( $description, 'performance-kit' ); ?></p>
 			</div>
 
 		<?php
@@ -210,7 +211,7 @@ class Performance_Kit_Admin {
 	public function performance_kit_success_notice() {
 		?>
 		<div class="updated">
-		<p><?php echo __( 'Your settings are updated!', 'performance-kit' ); ?></p>
+		<p><?php esc_html_e( 'Your settings are updated!', 'performance-kit' ); ?></p>
 		</div>
 		<?php
 		add_action( 'admin_notices', 'performance_kit_succes_notice' );
@@ -228,13 +229,18 @@ class Performance_Kit_Admin {
 	 * @since 1.0.0
 	 */
 	public function performance_kit_option_update( $button_name, $kit ) {
+    
 		if ( ! empty( $_POST ) && array_key_exists( $button_name, $_POST ) ) {
+
+      $_POST  = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
 			foreach ( $kit as $kit_wordpress_option ) {
 
 				if ( ! isset( $_POST[ $kit_wordpress_option['function'] ] ) ) {
+          // Update Option
 					update_option( $kit_wordpress_option['function'], '0' );
 				} else {
+          // Update Option
 					update_option( $kit_wordpress_option['function'], $_POST[ $kit_wordpress_option['function'] ] );
 				}
 			}
@@ -242,7 +248,8 @@ class Performance_Kit_Admin {
 	}
 
 	public function performance_kit_list_layout( $array, $key ) {
-		$this->performance_kit_option_update( 'submit-disable-scripts', $array );
+    $this->performance_kit_option_update( 'submit-disable-scripts', $array );
+  
 
 		foreach ( $array as $key ) {
 			include 'partials/kit-option.php';
@@ -262,10 +269,8 @@ class Performance_Kit_Admin {
 
 					echo '<div class="notification">';
 					echo file_get_contents( plugin_dir_path( PERFORMANCE_KIT_FILE ) . '/admin/assets/icons/alert.svg' );
-					echo __(
-						'Seems like your wp-config.php is not in the default place and this section requires a standard wp-config placement. <a target="_blank" href="mailto:hello@pressx.co">Contact us for more information.</a>',
-						'performance-kit'
-					);
+          echo esc_html__( 'Seems like your wp-config.php is not in the default place and this section requires a standard wp-config placement.', 'performance-kit' );
+          echo '<a target="_blank" href="' . esc_url('mailto:hello@pressx.co') . '">' . esc_html__('Contact us for more information.', 'performance-kit') . '</a>';
 					echo '</div>';
 
 				}
@@ -285,7 +290,7 @@ class Performance_Kit_Admin {
 				break;
 		endswitch;
 
-		submit_button( __( 'Save Changes', 'performance-kit' ), 'primary kit-button', 'submit-disable-scripts', true );
+		submit_button( esc_html__( 'Save Changes', 'performance-kit' ), 'primary kit-button', 'submit-disable-scripts', true );
 
 		echo '</div>';
 

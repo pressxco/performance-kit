@@ -71,7 +71,7 @@ class Performance_Kit_Import_Export extends Performance_Kit_Admin {
 					<textarea id="ecode" class="kit-option kit_option_export" name="export_code" rows="10"><?php $this->setting_export(); ?></textarea>
 				</div>
 				<p class="submit">
-					<button class="button button-primary kit-button" onclick="copyClipboard()"> Copy to clipboard</button>
+					<button class="button button-primary kit-button" onclick="copyClipboard()"><?php esc_html_e('Copy to clipboard', 'performance-kit'); ?></button>
 				</p>
 			</div>
 
@@ -88,7 +88,7 @@ class Performance_Kit_Import_Export extends Performance_Kit_Admin {
 			
 		<?php
 				$this->performance_kit_import_process();
-				submit_button( __( 'Import Options', 'performance-kit' ), 'primary kit-button', 'restore_options', true );
+				submit_button( esc_html__( 'Import Options', 'performance-kit' ), 'primary kit-button', 'restore_options', true );
 				echo '</div>';
 		?>
 
