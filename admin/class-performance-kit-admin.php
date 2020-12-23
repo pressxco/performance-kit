@@ -40,6 +40,9 @@ class Performance_Kit_Admin {
 	 */
 	private $version;
 
+	public $kit_wordpress_options;
+
+
 	/**
 	 * Initialize the class and set its properties.
 	 *
@@ -52,6 +55,21 @@ class Performance_Kit_Admin {
 		$this->plugin_name = $plugin_name;
 		$this->version     = $version;
 
+		global $kit_wordpress_options;
+		global $kit_config_options;
+		global $kit_advanced_options;
+		global $kit_woocommerce_options;
+		global $kit_cdn_options;
+		global $kit_analytics_options;
+		global $kit_misc_options;
+
+		$this->kit_wordpress_options   = $kit_wordpress_options;
+		$this->kit_config_options      = $kit_config_options;
+		$this->kit_advanced_options    = $kit_advanced_options;
+		$this->kit_woocommerce_options = $kit_woocommerce_options;
+		$this->kit_analytics_options   = $kit_analytics_options;
+		$this->kit_cdn_options         = $kit_cdn_options;
+		$this->kit_misc_options        = $kit_misc_options;
 	}
 
 	/**
@@ -170,9 +188,7 @@ class Performance_Kit_Admin {
 	 * @since 1.0.0
 	 */
 	public function display_plugin_setup_page() {
-
 		include_once 'partials/' . $this->plugin_name . '-admin-display.php';
-
 	}
 
 	/**
@@ -182,9 +198,8 @@ class Performance_Kit_Admin {
 	 */
 	public function display_plugin_name() {
 		$name = str_replace( '-', ' ', $this->plugin_name );
-    $name = ucwords( $name );
-    $name = esc_html( $name );
-		return '<a class="plugin-name" href="admin.php?page=performance-kit">' . $name . '</a>';
+		$name = ucwords( $name );
+		return '<a class="plugin-name" href="admin.php?page=performance-kit">' . esc_html( $name ) . '</a>';
 	}
 
 	public function section_heading( $title, $description ) {
@@ -208,48 +223,28 @@ class Performance_Kit_Admin {
 		}
 	}
 
-	public function performance_kit_success_notice() {
-		?>
-		<div class="updated">
-		<p><?php esc_html_e( 'Your settings are updated!', 'performance-kit' ); ?></p>
-		</div>
-		<?php
-		add_action( 'admin_notices', 'performance_kit_succes_notice' );
-	}
+	public function performance_kit_options() {
 
-	public function performance_kit_catch() {
-		if($_POST) {
-			$this->performance_kit_success_notice();
+		$kit_all_options = array_merge( $this->kit_wordpress_options, $this->kit_config_options, $this->kit_advanced_options, $this->kit_woocommerce_options, $this->kit_analytics_options, $this->kit_cdn_options, $this->kit_misc_options );
+
+		foreach ( $kit_all_options as $options => $key ) {
+			register_setting(
+				'kit-settings',
+				$key['function'],
+				array(
+					'type'              => $key['setting_type'],
+					'description'       => $key['description'],
+					'single'            => true,
+					'sanitize_callback' => $key['sanitize_callback'],
+				)
+			);
 		}
+
 	}
 
-	/**
-	 * Update the Performance Kit options.
-	 *
-	 * @since 1.0.0
-	 */
-	public function performance_kit_option_update( $button_name, $kit ) {
-    
-		if ( ! empty( $_POST ) && array_key_exists( $button_name, $_POST ) ) {
 
-      $_POST  = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-
-			foreach ( $kit as $kit_wordpress_option ) {
-
-				if ( ! isset( $_POST[ $kit_wordpress_option['function'] ] ) ) {
-          // Update Option
-					update_option( $kit_wordpress_option['function'], '0' );
-				} else {
-          // Update Option
-					update_option( $kit_wordpress_option['function'], $_POST[ $kit_wordpress_option['function'] ] );
-				}
-			}
-		}
-	}
 
 	public function performance_kit_list_layout( $array, $key ) {
-    $this->performance_kit_option_update( 'submit-disable-scripts', $array );
-  
 
 		foreach ( $array as $key ) {
 			include 'partials/kit-option.php';
@@ -264,17 +259,13 @@ class Performance_Kit_Admin {
 		switch ( $section ) :
 			case 'kit_config_options':
 				$this->section_heading( $title, $description );
-
-				if ( ! file_exists( ABSPATH . "wp-config.php" ) || ! is_writable( ABSPATH . "wp-config.php" ) ) {
-
+				if ( ! file_exists( ABSPATH . 'wp-config.php' ) || ! is_writable( ABSPATH . 'wp-config.php' ) ) {
 					echo '<div class="notification">';
 					echo file_get_contents( plugin_dir_path( PERFORMANCE_KIT_FILE ) . '/admin/assets/icons/alert.svg' );
-          echo esc_html__( 'Seems like your wp-config.php is not in the default place and this section requires a standard wp-config placement.', 'performance-kit' );
-          echo '<a target="_blank" href="' . esc_url('mailto:hello@pressx.co') . '">' . esc_html__('Contact us for more information.', 'performance-kit') . '</a>';
+					echo esc_html__( 'Seems like your wp-config.php is not in the default place and this section requires a standard wp-config placement.', 'performance-kit' );
+					echo '<a target="_blank" href="' . esc_url( 'mailto:hello@pressx.co' ) . '">' . esc_html__( 'Contact us for more information.', 'performance-kit' ) . '</a>';
 					echo '</div>';
-
 				}
-
 				$this->performance_kit_list_layout( $array, $key );
 				break;
 			case 'kit_woocommerce_options':

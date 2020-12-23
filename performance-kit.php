@@ -49,7 +49,6 @@ define( 'PERFORMANCE_KIT_FILE', __FILE__ );
 
 require plugin_dir_path( PERFORMANCE_KIT_FILE ) . 'includes/class-performance-kit.php';
 
-
 /**
  * The wp-config.php file transformer class.
  * This will allow us to add/update constants and variables in the config file.
@@ -141,30 +140,32 @@ add_action( 'activated_plugin', 'performance_kit_activation_redirect' );
 
 
 if ( ! function_exists( 'pk_fs' ) ) {
-  // Create a helper function for easy SDK access.
+	// Create a helper function for easy SDK access.
 	function pk_fs() {
 		global $pk_fs;
 
 		if ( ! isset( $pk_fs ) ) {
 			// Include Freemius SDK.
-			require_once dirname(__FILE__) . '/freemius/start.php';
+			require_once dirname( __FILE__ ) . '/freemius/start.php';
 
-			$pk_fs = fs_dynamic_init( array(
-				'id'                  => '7166',
-				'slug'                => 'performance-kit',
-				'type'                => 'plugin',
-				'public_key'          => 'pk_93b7162bab48a9918ea334cbd60d5',
-				'is_premium'          => false,
-				'has_addons'          => false,
-				'has_paid_plans'      => false,
-				'menu'                => array(
+			$pk_fs = fs_dynamic_init(
+				array(
+					'id'             => '7166',
 					'slug'           => 'performance-kit',
-					'first-path'     => '/options-general.php?page=performance-kit',
-					'account'        => false,
-					'contact'        => false,
-					'support'        => false,
-				),
-			));
+					'type'           => 'plugin',
+					'public_key'     => 'pk_93b7162bab48a9918ea334cbd60d5',
+					'is_premium'     => false,
+					'has_addons'     => false,
+					'has_paid_plans' => false,
+					'menu'           => array(
+						'slug'       => 'performance-kit',
+						'first-path' => '/options-general.php?page=performance-kit',
+						'account'    => false,
+						'contact'    => false,
+						'support'    => false,
+					),
+				)
+			);
 		}
 
 		return $pk_fs;

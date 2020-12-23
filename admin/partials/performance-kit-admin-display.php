@@ -13,15 +13,12 @@
 
 
 $default_tab = null;
-$_GET   = filter_input_array(INPUT_GET, FILTER_SANITIZE_STRING);
 
 if(isset($_GET['tab'])) {
 	$tab_data = htmlspecialchars($_GET['tab']);
 }
 
 $tab = isset( $tab_data ) ? $tab_data : $default_tab;
-
-settings_errors();
 ?>
 
 <div id="performance-kit" class="wrap">
@@ -46,7 +43,7 @@ settings_errors();
 				<span><?php esc_html_e( 'Support', 'performance-kit' ); ?></span>
 			</a>
 		</div>
-  </div>
+	</div>
 
   <div class="kit_wrapper">
 
@@ -78,6 +75,8 @@ settings_errors();
 			</a>
 
 		</nav>
+
+	<?php settings_errors(); ?>
 
 	<!-- For admin notices -->
 	<h2></h2>

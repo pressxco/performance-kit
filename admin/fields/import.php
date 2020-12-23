@@ -39,7 +39,7 @@ class Performance_Kit_Import_Export extends Performance_Kit_Admin {
 
 		foreach ( $this->all_options as $name => $value ) {
 			if ( stristr( $name, 'kit-' ) ) {
-					$this->my_options[ $name ] = $value;
+				 $this->my_options[ $name ] = $value;
 			}
 		}
 		echo $this->encode_arr( $this->my_options );
@@ -71,7 +71,7 @@ class Performance_Kit_Import_Export extends Performance_Kit_Admin {
 					<textarea id="ecode" class="kit-option kit_option_export" name="export_code" rows="10"><?php $this->setting_export(); ?></textarea>
 				</div>
 				<p class="submit">
-					<button class="button button-primary kit-button" onclick="copyClipboard()"><?php esc_html_e('Copy to clipboard', 'performance-kit'); ?></button>
+					<button class="button button-primary kit-button" onclick="copyClipboard()"><?php esc_html_e( 'Copy to clipboard', 'performance-kit' ); ?></button>
 				</p>
 			</div>
 
