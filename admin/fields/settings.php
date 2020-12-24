@@ -28,6 +28,7 @@ $kit_wordpress_options = array(
 		'type'              => 'checkbox',
 		'setting_type'      => 'boolean',
 		'sanitize_callback' => 'sanitize_key',
+		'setting_group'     => 'kit_wordpress_settings',
 	),
 	'emojis'              => array(
 		'title'             => 'Disable Emojis',
@@ -37,6 +38,7 @@ $kit_wordpress_options = array(
 		'type'              => 'checkbox',
 		'setting_type'      => 'boolean',
 		'sanitize_callback' => 'sanitize_key',
+		'setting_group'     => 'kit_wordpress_settings',
 	),
 	'embeds'              => array(
 		'title'             => 'Disable Embeds',
@@ -46,6 +48,7 @@ $kit_wordpress_options = array(
 		'type'              => 'checkbox',
 		'setting_type'      => 'boolean',
 		'sanitize_callback' => 'sanitize_key',
+		'setting_group'     => 'kit_wordpress_settings',
 	),
 	'query-strings'       => array(
 		'title'             => 'Remove Query Strings',
@@ -55,6 +58,7 @@ $kit_wordpress_options = array(
 		'type'              => 'checkbox',
 		'setting_type'      => 'boolean',
 		'sanitize_callback' => 'sanitize_key',
+		'setting_group'     => 'kit_wordpress_settings',
 	),
 	'jquery-migrate'      => array(
 		'title'             => 'Remove jQuery Migrate',
@@ -64,6 +68,7 @@ $kit_wordpress_options = array(
 		'type'              => 'checkbox',
 		'setting_type'      => 'boolean',
 		'sanitize_callback' => 'sanitize_key',
+		'setting_group'     => 'kit_wordpress_settings',
 	),
 	'wp-version'          => array(
 		'title'             => 'Hide WP Version',
@@ -73,6 +78,7 @@ $kit_wordpress_options = array(
 		'type'              => 'checkbox',
 		'setting_type'      => 'boolean',
 		'sanitize_callback' => 'sanitize_key',
+		'setting_group'     => 'kit_wordpress_settings',
 	),
 	'wlwmanifest'         => array(
 		'title'             => 'Remove wlwmanifest Link',
@@ -82,6 +88,7 @@ $kit_wordpress_options = array(
 		'type'              => 'checkbox',
 		'setting_type'      => 'boolean',
 		'sanitize_callback' => 'sanitize_key',
+		'setting_group'     => 'kit_wordpress_settings',
 	),
 	'rsd-link'            => array(
 		'title'             => 'Remove RSD Link',
@@ -91,6 +98,7 @@ $kit_wordpress_options = array(
 		'type'              => 'checkbox',
 		'setting_type'      => 'boolean',
 		'sanitize_callback' => 'sanitize_key',
+		'setting_group'     => 'kit_wordpress_settings',
 	),
 	'short-link'          => array(
 		'title'             => 'Remove Shortlink',
@@ -100,6 +108,7 @@ $kit_wordpress_options = array(
 		'type'              => 'checkbox',
 		'setting_type'      => 'boolean',
 		'sanitize_callback' => 'sanitize_key',
+		'setting_group'     => 'kit_wordpress_settings',
 	),
 	'rss-feeds'           => array(
 		'title'             => 'Disable RSS Feeds',
@@ -109,6 +118,7 @@ $kit_wordpress_options = array(
 		'type'              => 'checkbox',
 		'setting_type'      => 'boolean',
 		'sanitize_callback' => 'sanitize_key',
+		'setting_group'     => 'kit_wordpress_settings',
 	),
 	'rss-links'           => array(
 		'title'             => 'Remove RSS Feed Links',
@@ -118,6 +128,7 @@ $kit_wordpress_options = array(
 		'type'              => 'checkbox',
 		'setting_type'      => 'boolean',
 		'sanitize_callback' => 'sanitize_key',
+		'setting_group'     => 'kit_wordpress_settings',
 	),
 	'self-pingbacks'      => array(
 		'title'             => 'Disable Self Pingbacks',
@@ -127,6 +138,7 @@ $kit_wordpress_options = array(
 		'type'              => 'checkbox',
 		'setting_type'      => 'boolean',
 		'sanitize_callback' => 'sanitize_key',
+		'setting_group'     => 'kit_wordpress_settings',
 	),
 	'api-links'           => array(
 		'title'             => 'Remove REST API Links',
@@ -136,6 +148,7 @@ $kit_wordpress_options = array(
 		'type'              => 'checkbox',
 		'setting_type'      => 'boolean',
 		'sanitize_callback' => 'sanitize_key',
+		'setting_group'     => 'kit_wordpress_settings',
 	),
 	'dashicons'           => array(
 		'title'             => 'Disable Dashicons',
@@ -145,6 +158,7 @@ $kit_wordpress_options = array(
 		'type'              => 'checkbox',
 		'setting_type'      => 'boolean',
 		'sanitize_callback' => 'sanitize_key',
+		'setting_group'     => 'kit_wordpress_settings',
 	),
 	'comment-urls'        => array(
 		'title'             => 'Remove Comment URLs',
@@ -154,6 +168,7 @@ $kit_wordpress_options = array(
 		'type'              => 'checkbox',
 		'setting_type'      => 'boolean',
 		'sanitize_callback' => 'sanitize_key',
+		'setting_group'     => 'kit_wordpress_settings',
 	),
 	'heart'               => array(
 		'title'             => 'Disable Heartbeat',
@@ -167,6 +182,7 @@ $kit_wordpress_options = array(
 		),
 		'setting_type'      => 'number',
 		'sanitize_callback' => 'sanitize_key',
+		'setting_group'     => 'kit_wordpress_settings',
 	),
 	'heartbeat-frequency' => array(
 		'title'             => 'Heartbeat Frequency',
@@ -183,6 +199,7 @@ $kit_wordpress_options = array(
 		),
 		'setting_type'      => 'number',
 		'sanitize_callback' => 'sanitize_key',
+		'setting_group'     => 'kit_wordpress_settings',
 	),
 	'post-revisions'      => array(
 		'title'             => 'Limit Post Revisions',
@@ -209,6 +226,7 @@ $kit_wordpress_options = array(
 		),
 		'setting_type'      => 'number',
 		'sanitize_callback' => 'sanitize_key',
+		'setting_group'     => 'kit_wordpress_settings',
 	),
 	'autosave-interval'   => array(
 		'title'             => 'Autosave Interval',
@@ -225,6 +243,7 @@ $kit_wordpress_options = array(
 		),
 		'setting_type'      => 'number',
 		'sanitize_callback' => 'sanitize_key',
+		'setting_group'     => 'kit_wordpress_settings',
 	),
 );
 
@@ -237,6 +256,7 @@ $kit_config_options = array(
 		'default'           => '0',
 		'setting_type'      => 'boolean',
 		'sanitize_callback' => 'sanitize_key',
+		'setting_group'     => 'kit_wordpress_settings',
 	),
 	'wordpress-wp-cache'         => array(
 		'title'             => 'Enable WP_CACHE',
@@ -246,6 +266,7 @@ $kit_config_options = array(
 		'default'           => '0',
 		'setting_type'      => 'boolean',
 		'sanitize_callback' => 'sanitize_key',
+		'setting_group'     => 'kit_wordpress_settings',
 	),
 	'wordpress-concatenate'      => array(
 		'title'             => 'Enable CONCATENATE_SCRIPTS',
@@ -255,6 +276,7 @@ $kit_config_options = array(
 		'default'           => '0',
 		'setting_type'      => 'boolean',
 		'sanitize_callback' => 'sanitize_key',
+		'setting_group'     => 'kit_wordpress_settings',
 	),
 	'wordpress-compress-css'     => array(
 		'title'             => 'Enable COMPRESS_CSS',
@@ -264,6 +286,7 @@ $kit_config_options = array(
 		'default'           => '0',
 		'setting_type'      => 'boolean',
 		'sanitize_callback' => 'sanitize_key',
+		'setting_group'     => 'kit_wordpress_settings',
 	),
 	'wordpress-compress-scripts' => array(
 		'title'             => 'Enable COMPRESS_SCRIPTS',
@@ -273,6 +296,7 @@ $kit_config_options = array(
 		'default'           => '0',
 		'setting_type'      => 'boolean',
 		'sanitize_callback' => 'sanitize_key',
+		'setting_group'     => 'kit_wordpress_settings',
 	),
 	'wordpress-enforce'          => array(
 		'title'             => 'Enable ENFORCE_GZIP',
@@ -282,6 +306,7 @@ $kit_config_options = array(
 		'default'           => '0',
 		'setting_type'      => 'boolean',
 		'sanitize_callback' => 'sanitize_key',
+		'setting_group'     => 'kit_wordpress_settings',
 	),
 );
 
@@ -294,6 +319,7 @@ $kit_advanced_options = array(
 		'default'           => '0',
 		'setting_type'      => 'boolean',
 		'sanitize_callback' => 'sanitize_key',
+		'setting_group'     => 'kit_wordpress_settings',
 	),
 	'screen-options'  => array(
 		'title'             => 'Disable Screen Options Button',
@@ -303,6 +329,7 @@ $kit_advanced_options = array(
 		'default'           => '0',
 		'setting_type'      => 'boolean',
 		'sanitize_callback' => 'sanitize_key',
+		'setting_group'     => 'kit_wordpress_settings',
 	),
 	'core-updates'    => array(
 		'title'             => 'Disable WP Core Auto Update',
@@ -312,6 +339,7 @@ $kit_advanced_options = array(
 		'default'           => '0',
 		'setting_type'      => 'boolean',
 		'sanitize_callback' => 'sanitize_key',
+		'setting_group'     => 'kit_wordpress_settings',
 	),
 	'theme-updates'   => array(
 		'title'             => 'Disable Themes Auto Update',
@@ -321,6 +349,7 @@ $kit_advanced_options = array(
 		'default'           => '0',
 		'setting_type'      => 'boolean',
 		'sanitize_callback' => 'sanitize_key',
+		'setting_group'     => 'kit_wordpress_settings',
 	),
 	'plugins-updates' => array(
 		'title'             => 'Disable Plugins Auto Update',
@@ -330,6 +359,7 @@ $kit_advanced_options = array(
 		'default'           => '0',
 		'setting_type'      => 'boolean',
 		'sanitize_callback' => 'sanitize_key',
+		'setting_group'     => 'kit_wordpress_settings',
 	),
 	'file-editor'     => array(
 		'title'             => 'Disable Theme/Plugin File Editors',
@@ -339,6 +369,7 @@ $kit_advanced_options = array(
 		'default'           => '0',
 		'setting_type'      => 'boolean',
 		'sanitize_callback' => 'sanitize_key',
+		'setting_group'     => 'kit_wordpress_settings',
 	),
 );
 
@@ -350,6 +381,7 @@ $kit_woocommerce_options = array(
 		'type'              => 'checkbox',
 		'setting_type'      => 'boolean',
 		'sanitize_callback' => 'sanitize_key',
+		'setting_group'     => 'kit_woocommerce_settings',
 	),
 	'woo-cart'          => array(
 		'title'             => 'Disable Cart Fragmentation',
@@ -358,6 +390,7 @@ $kit_woocommerce_options = array(
 		'type'              => 'checkbox',
 		'setting_type'      => 'boolean',
 		'sanitize_callback' => 'sanitize_key',
+		'setting_group'     => 'kit_woocommerce_settings',
 	),
 	'woo-status'        => array(
 		'title'             => 'Disable Status Meta Box',
@@ -366,6 +399,7 @@ $kit_woocommerce_options = array(
 		'type'              => 'checkbox',
 		'setting_type'      => 'boolean',
 		'sanitize_callback' => 'sanitize_key',
+		'setting_group'     => 'kit_woocommerce_settings',
 	),
 	'woo-widgets'       => array(
 		'title'             => 'Disable Widgets',
@@ -374,6 +408,7 @@ $kit_woocommerce_options = array(
 		'type'              => 'checkbox',
 		'setting_type'      => 'boolean',
 		'sanitize_callback' => 'sanitize_key',
+		'setting_group'     => 'kit_woocommerce_settings',
 	),
 	'password-strength' => array(
 		'title'             => 'Disable Password Strength Meter',
@@ -382,6 +417,7 @@ $kit_woocommerce_options = array(
 		'type'              => 'checkbox',
 		'setting_type'      => 'boolean',
 		'sanitize_callback' => 'sanitize_key',
+		'setting_group'     => 'kit_woocommerce_settings',
 	),
 );
 
@@ -393,6 +429,7 @@ $kit_cdn_options = array(
 		'type'              => 'checkbox',
 		'setting_type'      => 'boolean',
 		'sanitize_callback' => 'sanitize_key',
+		'setting_group'     => 'kit_cdn_settings',
 	),
 	'cdn-url'              => array(
 		'title'             => 'CDN URL',
@@ -402,6 +439,7 @@ $kit_cdn_options = array(
 		'placeholder'       => 'https://',
 		'setting_type'      => 'string',
 		'sanitize_callback' => 'sanitize_text_field',
+		'setting_group'     => 'kit_cdn_settings',
 	),
 	'included-directories' => array(
 		'title'             => 'Included Directories',
@@ -411,6 +449,7 @@ $kit_cdn_options = array(
 		'placeholder'       => 'wp-content,wp-includes',
 		'setting_type'      => 'string',
 		'sanitize_callback' => 'sanitize_text_field',
+		'setting_group'     => 'kit_cdn_settings',
 	),
 	'excluded-directories' => array(
 		'title'             => 'Excluded Directories',
@@ -420,6 +459,7 @@ $kit_cdn_options = array(
 		'placeholder'       => 'wp-admin',
 		'setting_type'      => 'string',
 		'sanitize_callback' => 'sanitize_text_field',
+		'setting_group'     => 'kit_cdn_settings',
 	),
 	'excluded-files'       => array(
 		'title'             => 'Excluded Format',
@@ -429,6 +469,7 @@ $kit_cdn_options = array(
 		'placeholder'       => '.png,.svg',
 		'setting_type'      => 'string',
 		'sanitize_callback' => 'sanitize_text_field',
+		'setting_group'     => 'kit_cdn_settings',
 	),
 	'debug_mode'           => array(
 		'title'             => 'Enable Debug Mode',
@@ -437,6 +478,7 @@ $kit_cdn_options = array(
 		'type'              => 'checkbox',
 		'setting_type'      => 'boolean',
 		'sanitize_callback' => 'sanitize_key',
+		'setting_group'     => 'kit_cdn_settings',
 	),
 
 );
@@ -449,6 +491,7 @@ $kit_analytics_options = array(
 		'type'              => 'checkbox',
 		'setting_type'      => 'boolean',
 		'sanitize_callback' => 'sanitize_key',
+		'setting_group'     => 'kit_analytics_settings',
 	),
 	'tracking-code-type'     => array(
 		'title'             => 'Tracking Code Type',
@@ -460,6 +503,7 @@ $kit_analytics_options = array(
 		),
 		'setting_type'      => 'string',
 		'sanitize_callback' => 'sanitize_text_field',
+		'setting_group'     => 'kit_analytics_settings',
 	),
 	'tracking-id'            => array(
 		'title'             => 'Tracking ID',
@@ -469,6 +513,7 @@ $kit_analytics_options = array(
 		'placeholder'       => '',
 		'setting_type'      => 'string',
 		'sanitize_callback' => 'sanitize_text_field',
+		'setting_group'     => 'kit_analytics_settings',
 	),
 	'tracking-code-position' => array(
 		'title'             => 'Tracking Code Position',
@@ -481,6 +526,7 @@ $kit_analytics_options = array(
 		),
 		'setting_type'      => 'string',
 		'sanitize_callback' => 'sanitize_text_field',
+		'setting_group'     => 'kit_analytics_settings',
 	),
 	'optimize-tracking'      => array(
 		'title'             => 'Optimize Analytics',
@@ -489,6 +535,7 @@ $kit_analytics_options = array(
 		'type'              => 'checkbox',
 		'setting_type'      => 'boolean',
 		'sanitize_callback' => 'sanitize_key',
+		'setting_group'     => 'kit_analytics_settings',
 	),
 	'anonymize-ip'           => array(
 		'title'             => 'Anonymize IP',
@@ -497,6 +544,7 @@ $kit_analytics_options = array(
 		'type'              => 'checkbox',
 		'setting_type'      => 'boolean',
 		'sanitize_callback' => 'sanitize_key',
+		'setting_group'     => 'kit_analytics_settings',
 	),
 	'track-admins'           => array(
 		'title'             => 'Track Logged In Admins',
@@ -505,6 +553,7 @@ $kit_analytics_options = array(
 		'type'              => 'checkbox',
 		'setting_type'      => 'boolean',
 		'sanitize_callback' => 'sanitize_key',
+		'setting_group'     => 'kit_analytics_settings',
 	),
 );
 
@@ -516,6 +565,7 @@ $kit_misc_options = array(
 		'type'              => 'checkbox',
 		'setting_type'      => 'boolean',
 		'sanitize_callback' => 'sanitize_key',
+		'setting_group'     => 'kit_misc_settings',
 	),
 	'test-0'  => array(
 		'title'             => 'Disable Google Maps',
@@ -524,6 +574,7 @@ $kit_misc_options = array(
 		'type'              => 'checkbox',
 		'setting_type'      => 'boolean',
 		'sanitize_callback' => 'sanitize_key',
+		'setting_group'     => 'kit_misc_settings',
 	),
 	'test-1'  => array(
 		'title'             => 'Disable Gutenberg Editor',
@@ -532,6 +583,7 @@ $kit_misc_options = array(
 		'type'              => 'checkbox',
 		'setting_type'      => 'boolean',
 		'sanitize_callback' => 'sanitize_key',
+		'setting_group'     => 'kit_misc_settings',
 	),
 	'test-3'  => array(
 		'title'             => 'Disable HTML in Comments',
@@ -540,6 +592,7 @@ $kit_misc_options = array(
 		'type'              => 'checkbox',
 		'setting_type'      => 'boolean',
 		'sanitize_callback' => 'sanitize_key',
+		'setting_group'     => 'kit_misc_settings',
 	),
 	'test-11' => array(
 		'title'             => 'Disable Font Awesome',
@@ -548,6 +601,7 @@ $kit_misc_options = array(
 		'type'              => 'checkbox',
 		'setting_type'      => 'boolean',
 		'sanitize_callback' => 'sanitize_key',
+		'setting_group'     => 'kit_misc_settings',
 	),
 	'test-12' => array(
 		'title'             => 'Disable Google Fonts',
@@ -556,5 +610,6 @@ $kit_misc_options = array(
 		'type'              => 'checkbox',
 		'setting_type'      => 'boolean',
 		'sanitize_callback' => 'sanitize_key',
+		'setting_group'     => 'kit_misc_settings',
 	),
 );

@@ -27,17 +27,16 @@ class Performance_Kit_Analytics_Options extends Performance_Kit_Admin {
 		<form id="performance_kit_misc_options" method="post" name="" action="options.php">
 
 			<?php
-				settings_fields( 'kit-settings' );
+				settings_fields( 'kit_analytics_settings' );
 				wp_nonce_field( 'performance_kit_update', 'performance_kit_form' );
 
 				$this->performance_kit_section(
 					'Analytics Options',
 					'Setup, enable and modify the analytics for your website',
-					'kit_analytics_options', 
+					'kit_analytics_options',
 					$this->kit_analytics_options,
 					'kit_option'
-        );
-        
+				);
 
 			?>
 

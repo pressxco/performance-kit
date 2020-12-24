@@ -27,17 +27,17 @@ class Performance_Kit_Misc_Options extends Performance_Kit_Admin {
 		<form id="performance_kit_misc_options" method="post" name="" action="options.php">
 
 			<?php
-				settings_fields( 'kit-settings' );
+				settings_fields( 'kit_misc_settings' );
 				wp_nonce_field( 'performance_kit_update', 'performance_kit_form' );
 
 				$this->performance_kit_section(
 					'WordPress Misc Options',
 					'Adjust the WordPress Miscellaneous options for better performance',
-					'kit_misc_options', 
+					'kit_misc_options',
 					$this->kit_misc_options,
 					'kit_option'
-        );
-        
+				);
+
 			?>
 
 		</form>

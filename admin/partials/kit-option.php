@@ -14,73 +14,82 @@
 
 <div class="kit-option">
 
-  <label for="<?php echo esc_html($key['function']); ?>">
+	<label for="<?php echo esc_attr( $key['function'] ); ?>">
 
-	<div class="option-title">
-	  <span><?php echo esc_html($key['title']); ?></span>
-	  <div class="option-tooltip">
-		<span class="tooltip">?</span>
-		<span class="tooltip-text">
-		  <?php echo esc_html($key['description']); ?>
-		</span>
-	  </div>
-	</div>
+		<div class="option-title">
+			<span><?php echo esc_html( $key['title'] ); ?></span>
+			<div class="option-tooltip">
+			<span class="tooltip"><?php echo esc_html( '?' ); ?></span>
+			<span class="tooltip-text">
+				<?php echo esc_html( $key['description'] ); ?>
+			</span>
+			</div>
+		</div>
 
-	<?php 
-	// Check the input types
-	if ( $key['type'] == 'checkbox' ) : ?>
-	<div class="switch">
-	  <input 
-		type="checkbox" 
-		class="kit_option" 
-		id="<?php echo esc_html($key['function']); ?>"
-		name="<?php echo esc_html($key['function']); ?>"
-		value="<?php if ( get_option( $key['function'] ) === '1' ) { echo '1'; } else { echo '0';} ?>" <?php if ( get_option( $key['function'] ) === '1' ) { echo 'checked';} ?> />
-	  <span class="slider round"></span>
-	</div>
+	<?php if ( 'checkbox' === $key['type'] ) : ?>
 
-	<?php 
-	// Condition for select boxes
-	elseif ( $key['type'] == 'select' ) : ?>
-	<div class="select">
-	  <select class="custom" name="<?php echo esc_html($key['function']); ?>">
-		<?php foreach ( $key['options'] as $option => $value ) : ?>
-		<option value="<?php echo esc_html($value); ?>" <?php if ( get_option( $key['function'] ) === $value ) { echo 'selected';} ?>>
-			<?php echo esc_html($option); ?>
-		</option>
-		<?php endforeach; ?>
-	  </select>
-	</div>
+		<?php
+		$input_value = ( get_option( $key['function'] ) === '1' ) ? '1' : '0';
+		$input_state = ( get_option( $key['function'] ) === '1' ) ? 'checked' : '';
+		?>
 
-	<?php 
-	// Condition for number inputs
-	elseif ( $key['type'] == 'inputnumber' ) : ?>
-	<div class="select">
-	  <input 
-	  type="number" 
-	  class="kit_option" 
-	  id="<?php echo esc_html($key['function']); ?>"
-	  name="<?php echo esc_html($key['function']); ?>" 
-	  value="" 
-	  placeholder="<?php if ( $key['placeholder'] ) { echo esc_html($key['placeholder']); } ?>"
-	  />
-	</div>
+		<div class="switch">
+			<input 
+			type="checkbox" 
+			class="kit_option" 
+			id="<?php echo esc_attr( $key['function'] ); ?>" 
+			name="<?php echo esc_attr( $key['function'] ); ?>" 
+			value="<?php echo esc_attr( $input_value ); ?>" 
+			<?php echo esc_attr( $input_state ); ?> />
+			<span class="slider round"></span>
+		</div>
 
-	<?php 
-	// Condition for text inpurts
-	elseif ( $key['type'] == 'inputtext' ) : ?>
-	<div class="select">
-	  <input 
-		type="text" 
-		class="kit_option" 
-		id="<?php echo esc_html($key['function']); ?>" 
-		name="<?php echo esc_html($key['function']); ?>"
-		value="<?php if ( ! empty( get_option( $key['function'] ) ) ) { echo get_option( $key['function'] ); }; ?>" 
-		placeholder="<?php if ( $key['placeholder'] ) { echo esc_html($key['placeholder']); } ?>" />
-	</div>
 
-	<?php endif; ?>
+	<?php elseif ( 'select' === $key['type'] ) : ?>
 
-  </label>
+		<div class="select">
+			<select class="custom" name="<?php echo esc_attr( $key['function'] ); ?>">
+			<?php foreach ( $key['options'] as $option => $value ) : ?>
+				<?php $select_state = ( get_option( $key['function'] ) === $value ) ? 'selected' : ''; ?>
+			<option value="<?php echo esc_attr( $value ); ?>" <?php echo esc_attr( $select_state ); ?>>
+				<?php echo esc_html( $option ); ?>
+			</option>
+			<?php endforeach; ?>
+			</select>
+		</div>
+
+	<?php elseif ( 'inputnumber' === $key['type'] ) : ?>
+		<?php $placeholder = ( $key['placeholder'] ) ? $key['placeholder'] : ''; ?>
+		<div class="select">
+			<input 
+			type="number" 
+			class="kit_option" 
+			id="<?php echo esc_attr( $key['function'] ); ?>"
+			name="<?php echo esc_attr( $key['function'] ); ?>" 
+			value="" 
+			placeholder="<?php echo esc_html( $placeholder ); ?>"
+			/>
+		</div>
+
+	<?php elseif ( 'inputtext' === $key['type'] ) : ?>
+
+		<?php
+		$input_value = ( ! empty( get_option( $key['function'] ) ) ) ? get_option( $key['function'] ) : '';
+		$placeholder = ( $key['placeholder'] ) ? $key['placeholder'] : '';
+		?>
+
+		<div class="select">
+			<input 
+			type="text" 
+			class="kit_option" 
+			id="<?php echo esc_attr( $key['function'] ); ?>" 
+			name="<?php echo esc_attr( $key['function'] ); ?>"
+			value="<?php echo esc_attr( $input_value ); ?>" 
+			placeholder="<?php echo esc_attr( $placeholder ); ?>" />
+		</div>
+
+		<?php endif; ?>
+
+	</label>
 
 </div>

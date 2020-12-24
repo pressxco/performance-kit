@@ -119,25 +119,6 @@ class Performance_Kit_Admin {
 	}
 
 	/**
-	 * Add custom jQuery script to the admin panel.
-	 *
-	 * @since 1.0.0
-	 */
-	public function add_javascript() {
-		?>
-			<script>
-			jQuery('input[type=checkbox].kit_option').click(function() {
-				if (jQuery(this).val() == '0') {
-					jQuery(this).val('1');
-				} else {
-					jQuery(this).val('0');
-				}
-			});
-			</script>
-		<?php
-	}
-
-	/**
 	 * Register the administration menu for this plugin into the WordPress Dashboard menu.
 	 *
 	 * @since 1.0.0
@@ -164,6 +145,25 @@ class Performance_Kit_Admin {
 			plugins_url( 'performance-kit/admin/assets/icons/flash.svg' ),
 			999999999
 		);
+	}
+
+	/**
+	 * Add custom jQuery script to the admin panel.
+	 *
+	 * @since 1.0.0
+	 */
+	public function add_javascript() {
+		?>
+			<script>
+			jQuery('input[type=checkbox].kit_option').click(function() {
+				if (jQuery(this).val() == '0') {
+					jQuery(this).val('1');
+				} else {
+					jQuery(this).val('0');
+				}
+			});
+			</script>
+		<?php
 	}
 
 	/**
@@ -202,6 +202,11 @@ class Performance_Kit_Admin {
 		return '<a class="plugin-name" href="admin.php?page=performance-kit">' . esc_html( $name ) . '</a>';
 	}
 
+	/**
+	 * Render the section heading.
+	 *
+	 * @since 1.0.0
+	 */
 	public function section_heading( $title, $description ) {
 		?>
 
@@ -213,6 +218,11 @@ class Performance_Kit_Admin {
 		<?php
 	}
 
+	/**
+	 * WooCommerce Checker
+	 *
+	 * @since 1.0.0
+	 */
 	public function woocommerce_checker() {
 		if ( class_exists( 'WooCommerce' ) ) {
 			$this->kit_woocommerce = true;
@@ -223,13 +233,18 @@ class Performance_Kit_Admin {
 		}
 	}
 
+	/**
+	 * Register Options
+	 *
+	 * @since 1.0.0
+	 */
 	public function performance_kit_options() {
 
 		$kit_all_options = array_merge( $this->kit_wordpress_options, $this->kit_config_options, $this->kit_advanced_options, $this->kit_woocommerce_options, $this->kit_analytics_options, $this->kit_cdn_options, $this->kit_misc_options );
 
 		foreach ( $kit_all_options as $options => $key ) {
 			register_setting(
-				'kit-settings',
+				$key['setting_group'],
 				$key['function'],
 				array(
 					'type'              => $key['setting_type'],
@@ -242,8 +257,11 @@ class Performance_Kit_Admin {
 
 	}
 
-
-
+	/**
+	 * Render the list layout.
+	 *
+	 * @since 1.0.0
+	 */
 	public function performance_kit_list_layout( $array, $key ) {
 
 		foreach ( $array as $key ) {
@@ -252,6 +270,11 @@ class Performance_Kit_Admin {
 
 	}
 
+	/**
+	 * Render the section.
+	 *
+	 * @since 1.0.0
+	 */
 	public function performance_kit_section( $title, $description, $section, $array, $key ) {
 
 		echo '<div id="' . $section . '" class="pk-section">';
@@ -281,7 +304,7 @@ class Performance_Kit_Admin {
 				break;
 		endswitch;
 
-		submit_button( esc_html__( 'Save Changes', 'performance-kit' ), 'primary kit-button', 'submit-disable-scripts', true );
+		submit_button( esc_html__( 'Save Changes', 'performance-kit' ), 'primary kit-button', $section, true );
 
 		echo '</div>';
 

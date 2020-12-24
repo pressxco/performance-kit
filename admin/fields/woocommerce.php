@@ -27,7 +27,7 @@ class Performance_Kit_Woocommerce_Options extends Performance_Kit_Admin {
 		<form id="performance_kit_woocommerce_options" method="post" name="" action="options.php">
 
 			<?php
-				settings_fields( 'kit-settings' );
+				settings_fields( 'kit_woocommerce_settings' );
 				wp_nonce_field( 'performance_kit_update', 'performance_kit_form' );
 
 				$this->performance_kit_section(

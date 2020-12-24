@@ -77,7 +77,7 @@ function kit_cdn_rewrite_url( $url ) {
 		}
 
 		// Don't Rewrite if User is Admin
-		if (current_user_can('administrator') && get_option('kit-debug-mode') === '1') {
+		if ( current_user_can( 'administrator' ) && get_option( 'kit-debug-mode' ) === '1' ) {
 			return $url[0];
 		}
 

@@ -30,7 +30,7 @@ class Performance_Kit_Wordpress_Options extends Performance_Kit_Admin {
 		<form id="performance_kit_wordpress_options" method="post" name="" action="options.php">
 
 			<?php
-				settings_fields( 'kit-settings' );
+				settings_fields( 'kit_wordpress_settings' );
 				wp_nonce_field( 'performance_kit_update', 'performance_kit_form' );
 
 				$this->performance_kit_section(

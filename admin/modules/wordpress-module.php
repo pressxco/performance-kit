@@ -19,7 +19,7 @@
  * -----------------------------------------------------------------------------
  */
 
-if ( ! empty( get_option( 'kit-xmlrpc' ) ) && get_option( 'kit-xmlrpc' ) == '1' ) {
+if ( ! empty( get_option( 'kit-xmlrpc' ) ) && get_option( 'kit-xmlrpc' ) === '1' ) {
 	add_filter( 'xmlrpc_enabled', '__return_false' );
 	add_filter( 'wp_headers', 'kit_remove_x_pingback' );
 	add_filter( 'pings_open', '__return_false', 9999 );
@@ -38,7 +38,7 @@ function kit_remove_x_pingback( $headers ) {
  * -----------------------------------------------------------------------------
  */
 
-if ( ! empty( get_option( 'kit-emojis' ) ) && get_option( 'kit-emojis' ) == '1' ) {
+if ( ! empty( get_option( 'kit-emojis' ) ) && get_option( 'kit-emojis' ) === '1' ) {
 	add_action( 'init', 'kit_disable_emojis' );
 }
 
@@ -79,7 +79,7 @@ function kit_disable_emojis_dns_prefetch( $urls, $relation_type ) {
  * -----------------------------------------------------------------------------
  */
 
-if ( ! empty( get_option( 'kit-embeds' ) ) && get_option( 'kit-embeds' ) == '1' ) {
+if ( ! empty( get_option( 'kit-embeds' ) ) && get_option( 'kit-embeds' ) === '1' ) {
 	add_action( 'init', 'kit_disable_embeds', 9999 );
 }
 
@@ -128,7 +128,7 @@ function kit_disable_embeds_rewrites( $rules ) {
  * -----------------------------------------------------------------------------
  */
 
-if ( ! empty( get_option( 'kit-query-strings' ) ) && get_option( 'kit-query-strings' ) == '1' ) {
+if ( ! empty( get_option( 'kit-query-strings' ) ) && get_option( 'kit-query-strings' ) === '1' ) {
 	add_action( 'init', 'kit_remove_query_strings' );
 }
 
@@ -152,7 +152,7 @@ function kit_remove_query_strings_split( $src ) {
  * -----------------------------------------------------------------------------
  */
 
-if ( ! empty( get_option( 'kit-jquery-migrate' ) ) && get_option( 'kit-jquery-migrate' ) == '1' ) {
+if ( ! empty( get_option( 'kit-jquery-migrate' ) ) && get_option( 'kit-jquery-migrate' ) === '1' ) {
 	add_filter( 'wp_default_scripts', 'kit_remove_jquery_migrate' );
 }
 
@@ -171,7 +171,7 @@ function kit_remove_jquery_migrate( &$scripts ) {
  * -----------------------------------------------------------------------------
  */
 
-if ( ! empty( get_option( 'kit-wp-version' ) ) && get_option( 'kit-wp-version' ) == '1' ) {
+if ( ! empty( get_option( 'kit-wp-version' ) ) && get_option( 'kit-wp-version' ) === '1' ) {
 	remove_action( 'wp_head', 'wp_generator' );
 	add_filter( 'the_generator', 'kit_hide_wp_version' );
 }
@@ -188,7 +188,7 @@ function kit_hide_wp_version() {
  * -----------------------------------------------------------------------------
  */
 
-if ( ! empty( get_option( 'kit-manifest' ) ) && get_option( 'kit-manifest' ) == '1' ) {
+if ( ! empty( get_option( 'kit-manifest' ) ) && get_option( 'kit-manifest' ) === '1' ) {
 	remove_action( 'wp_head', 'wlwmanifest_link' );
 }
 
@@ -200,7 +200,7 @@ if ( ! empty( get_option( 'kit-manifest' ) ) && get_option( 'kit-manifest' ) == 
  * -----------------------------------------------------------------------------
  */
 
-if ( ! empty( get_option( 'kit-rsd' ) ) && get_option( 'kit-rsd' ) == '1' ) {
+if ( ! empty( get_option( 'kit-rsd' ) ) && get_option( 'kit-rsd' ) === '1' ) {
 	remove_action( 'wp_head', 'rsd_link' );
 }
 
@@ -212,7 +212,7 @@ if ( ! empty( get_option( 'kit-rsd' ) ) && get_option( 'kit-rsd' ) == '1' ) {
  * -----------------------------------------------------------------------------
  */
 
-if ( ! empty( get_option( 'kit-shortlink' ) ) && get_option( 'kit-shortlink' ) == '1' ) {
+if ( ! empty( get_option( 'kit-shortlink' ) ) && get_option( 'kit-shortlink' ) === '1' ) {
 	remove_action( 'wp_head', 'wp_shortlink_wp_head' );
 	remove_action( 'template_redirect', 'wp_shortlink_header', 11, 0 );
 }
@@ -225,7 +225,7 @@ if ( ! empty( get_option( 'kit-shortlink' ) ) && get_option( 'kit-shortlink' ) =
  * -----------------------------------------------------------------------------
  */
 
-if ( ! empty( get_option( 'kit-rss-feed' ) ) && get_option( 'kit-rss-feed' ) == '1' ) {
+if ( ! empty( get_option( 'kit-rss-feed' ) ) && get_option( 'kit-rss-feed' ) === '1' ) {
 	add_action( 'template_redirect', 'kit_disable_rss_feeds', 1 );
 }
 
@@ -264,7 +264,7 @@ function kit_disable_rss_feeds() {
  * -----------------------------------------------------------------------------
  */
 
-if ( ! empty( get_option( 'kit-rss-links' ) ) && get_option( 'kit-rss-links' ) == '1' ) {
+if ( ! empty( get_option( 'kit-rss-links' ) ) && get_option( 'kit-rss-links' ) === '1' ) {
 	remove_action( 'wp_head', 'feed_links', 2 );
 	remove_action( 'wp_head', 'feed_links_extra', 3 );
 }
@@ -277,7 +277,7 @@ if ( ! empty( get_option( 'kit-rss-links' ) ) && get_option( 'kit-rss-links' ) =
  * -----------------------------------------------------------------------------
  */
 
-if ( ! empty( get_option( 'kit-pingbacks' ) ) && get_option( 'kit-pingbacks' ) == '1' ) {
+if ( ! empty( get_option( 'kit-pingbacks' ) ) && get_option( 'kit-pingbacks' ) === '1' ) {
 	add_action( 'pre_ping', 'kit_disable_self_pingbacks' );
 }
 
@@ -298,7 +298,7 @@ function kit_disable_self_pingbacks( &$links ) {
  * -----------------------------------------------------------------------------
  */
 
-if ( ! empty( get_option( 'kit-restapi-links' ) ) && get_option( 'kit-restapi-links' ) == '1' ) {
+if ( ! empty( get_option( 'kit-restapi-links' ) ) && get_option( 'kit-restapi-links' ) === '1' ) {
 	remove_action( 'xmlrpc_rsd_apis', 'rest_output_rsd' );
 	remove_action( 'wp_head', 'rest_output_link_wp_head' );
 	remove_action( 'template_redirect', 'rest_output_link_header', 11, 0 );
@@ -312,7 +312,7 @@ if ( ! empty( get_option( 'kit-restapi-links' ) ) && get_option( 'kit-restapi-li
  * -----------------------------------------------------------------------------
  */
 
-if ( ! empty( get_option( 'kit-dashicons' ) ) && get_option( 'kit-dashicons' ) == '1' ) {
+if ( ! empty( get_option( 'kit-dashicons' ) ) && get_option( 'kit-dashicons' ) === '1' ) {
 	add_action( 'wp_enqueue_scripts', 'kit_disable_dashicons' );
 }
 
@@ -331,7 +331,7 @@ function kit_disable_dashicons() {
  * -----------------------------------------------------------------------------
  */
 
-if ( ! empty( get_option( 'kit-comment-urls' ) ) && get_option( 'kit-comment-urls' ) == '1' ) {
+if ( ! empty( get_option( 'kit-comment-urls' ) ) && get_option( 'kit-comment-urls' ) === '1' ) {
 	add_filter( 'get_comment_author_link', 'kit_remove_comment_author_link', 10, 3 );
 	add_filter( 'get_comment_author_url', 'kit_remove_comment_author_url' );
 	add_filter( 'comment_form_default_fields', 'kit_remove_website_field', 9999 );
@@ -410,7 +410,7 @@ function performance_kit_admin_notice_autosave_interval() {
  * -----------------------------------------------------------------------------
  */
 
-if ( ! empty( get_option( 'kit-comment-system' ) ) && get_option( 'kit-comment-system' ) == '1' ) {
+if ( ! empty( get_option( 'kit-comment-system' ) ) && get_option( 'kit-comment-system' ) === '1' ) {
 
 	function df_disable_comments_post_types_support() {
 
@@ -506,7 +506,7 @@ if ( ! empty( get_option( 'kit-comment-system' ) ) && get_option( 'kit-comment-s
  * -----------------------------------------------------------------------------
  */
 
-if ( ! empty( get_option( 'kit-screen-options' ) ) && get_option( 'kit-screen-options' ) == '1' ) {
+if ( ! empty( get_option( 'kit-screen-options' ) ) && get_option( 'kit-screen-options' ) === '1' ) {
 	function kit_remove_screen_options() {
 		if ( ! current_user_can( 'manage_options' ) ) {
 			return false;
@@ -525,7 +525,7 @@ if ( ! empty( get_option( 'kit-screen-options' ) ) && get_option( 'kit-screen-op
  * -----------------------------------------------------------------------------
  */
 
-if ( ! empty( get_option( 'kit-core-options' ) ) && get_option( 'kit-core-options' ) == '1' ) {
+if ( ! empty( get_option( 'kit-core-options' ) ) && get_option( 'kit-core-options' ) === '1' ) {
 	define( 'WP_AUTO_UPDATE_CORE', false );
 }
 
@@ -538,7 +538,7 @@ if ( ! empty( get_option( 'kit-core-options' ) ) && get_option( 'kit-core-option
  * -----------------------------------------------------------------------------
  */
 
-if ( ! empty( get_option( 'kit-theme-updates' ) ) && get_option( 'kit-theme-updates' ) == '1' ) {
+if ( ! empty( get_option( 'kit-theme-updates' ) ) && get_option( 'kit-theme-updates' ) === '1' ) {
 	add_filter( 'auto_update_plugin', '__return_false' );
 }
 
@@ -550,7 +550,7 @@ if ( ! empty( get_option( 'kit-theme-updates' ) ) && get_option( 'kit-theme-upda
  * -----------------------------------------------------------------------------
  */
 
-if ( ! empty( get_option( 'kit-plugin-updated' ) ) && get_option( 'kit-plugin-updated' ) == '1' ) {
+if ( ! empty( get_option( 'kit-plugin-updated' ) ) && get_option( 'kit-plugin-updated' ) === '1' ) {
 	add_filter( 'auto_update_plugin', '__return_false' );
 }
 
@@ -564,7 +564,7 @@ if ( ! empty( get_option( 'kit-plugin-updated' ) ) && get_option( 'kit-plugin-up
  * -----------------------------------------------------------------------------
  */
 
-if ( ! empty( get_option( 'kit-file-editor' ) ) && get_option( 'kit-file-editor' ) == '1' ) {
+if ( ! empty( get_option( 'kit-file-editor' ) ) && get_option( 'kit-file-editor' ) === '1' ) {
 
 	define( 'DISALLOW_FILE_EDIT', true );
 
@@ -584,7 +584,7 @@ if ( file_exists( ABSPATH . 'wp-config.php' ) && is_writable( ABSPATH . 'wp-conf
 	$config_transformer = new WPConfigTransformer( ABSPATH . 'wp-config.php' );
 
 	// Modify WP_CRON
-	if ( get_option( 'kit-wp-cron' ) == '1' ) {
+	if ( get_option( 'kit-wp-cron' ) === '1' ) {
 		if ( $config_transformer->exists( 'constant', 'DISABLE_WP_CRON' ) ) {
 			$config_transformer->update(
 				'constant',
@@ -623,7 +623,7 @@ if ( file_exists( ABSPATH . 'wp-config.php' ) && is_writable( ABSPATH . 'wp-conf
 	}
 
 	// Modify WP_CACHE
-	if ( get_option( 'kit-wp-cache' ) == '1' ) {
+	if ( get_option( 'kit-wp-cache' ) === '1' ) {
 		$config_transformer->update(
 			'constant',
 			'WP_CACHE',
@@ -648,7 +648,7 @@ if ( file_exists( ABSPATH . 'wp-config.php' ) && is_writable( ABSPATH . 'wp-conf
 	}
 
 	// Modify CONCATENATE_SCRIPTS
-	if ( get_option( 'kit-wp-concatenate' ) == '1' ) {
+	if ( get_option( 'kit-wp-concatenate' ) === '1' ) {
 		$config_transformer->update(
 			'constant',
 			'CONCATENATE_SCRIPTS',
@@ -673,7 +673,7 @@ if ( file_exists( ABSPATH . 'wp-config.php' ) && is_writable( ABSPATH . 'wp-conf
 	}
 
 	// Modify COMPRESS_CSS
-	if ( get_option( 'kit-wp-compress-css' ) == '1' ) {
+	if ( get_option( 'kit-wp-compress-css' ) === '1' ) {
 		$config_transformer->update(
 			'constant',
 			'COMPRESS_CSS',
@@ -698,7 +698,7 @@ if ( file_exists( ABSPATH . 'wp-config.php' ) && is_writable( ABSPATH . 'wp-conf
 	}
 
 	// Modify COMPRESS_SCRIPTS
-	if ( get_option( 'wordpress-compress-scripts' ) == '1' ) {
+	if ( get_option( 'wordpress-compress-scripts' ) === '1' ) {
 		$config_transformer->update(
 			'constant',
 			'COMPRESS_SCRIPTS',
@@ -723,7 +723,7 @@ if ( file_exists( ABSPATH . 'wp-config.php' ) && is_writable( ABSPATH . 'wp-conf
 	}
 
 	// Modify ENFORCE_GZIP
-	if ( get_option( 'kit-wp-gzip' ) == '1' ) {
+	if ( get_option( 'kit-wp-gzip' ) === '1' ) {
 		$config_transformer->update(
 			'constant',
 			'ENFORCE_GZIP',
