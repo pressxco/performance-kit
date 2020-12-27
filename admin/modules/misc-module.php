@@ -20,7 +20,7 @@
  * -----------------------------------------------------------------------------
  */
 
-if ( ! empty( get_option( 'kit-svg-support' ) ) && get_option( 'kit-svg-support' ) == '1' ) {
+if ( ! empty( get_option( 'kit-svg-support' ) ) && get_option( 'kit-svg-support' ) === '1' ) {
 
 	function kit_mime_types( $mimes ) {
 
@@ -83,7 +83,7 @@ if ( ! empty( get_option( 'kit-svg-support' ) ) && get_option( 'kit-svg-support'
  * -----------------------------------------------------------------------------
  */
 
-if ( ! empty( get_option( 'kit-google-maps' ) ) && get_option( 'kit-google-maps' ) == '1' ) {
+if ( ! empty( get_option( 'kit-google-maps' ) ) && get_option( 'kit-google-maps' ) === '1' ) {
 	add_action( 'template_redirect', 'kit_disable_google_maps' );
 }
 
@@ -104,7 +104,7 @@ function kit_disable_google_maps_regex( $html ) {
  * -----------------------------------------------------------------------------
  */
 
-if ( ! empty( get_option( 'kit-google-fonts' ) ) && get_option( 'kit-google-fonts' ) == '1' ) {
+if ( ! empty( get_option( 'kit-google-fonts' ) ) && get_option( 'kit-google-fonts' ) === '1' ) {
 	add_action( 'template_redirect', 'kit_disable_google_fonts' );
 }
 
@@ -125,7 +125,7 @@ function kit_disable_google_fonts_regex( $html ) {
  * -----------------------------------------------------------------------------
  */
 
-if ( ! empty( get_option( 'kit-gutenberg-editor' ) ) && get_option( 'kit-gutenberg-editor' ) == '1' ) {
+if ( ! empty( get_option( 'kit-gutenberg-editor' ) ) && get_option( 'kit-gutenberg-editor' ) === '1' ) {
 
 	if ( version_compare( $GLOBALS['wp_version'], '5.0-beta', '>' ) ) {
 		add_filter( 'use_block_editor_for_post_type', '__return_false', 100 );
@@ -206,6 +206,6 @@ if ( ! empty( get_option( 'kit-gutenberg-editor' ) ) && get_option( 'kit-gutenbe
  * -----------------------------------------------------------------------------
  */
 
-if ( ! empty( get_option( 'kit-html-comments' ) ) && get_option( 'kit-html-comments' ) == '1' ) {
+if ( ! empty( get_option( 'kit-html-comments' ) ) && get_option( 'kit-html-comments' ) === '1' ) {
 	add_filter( 'pre_comment_content', 'esc_html' );
 }

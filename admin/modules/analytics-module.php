@@ -19,7 +19,7 @@
  * -----------------------------------------------------------------------------
  */
 
-if ( get_option( 'kit-local-analytics' ) === '1' ) {
+if ( ! empty( get_option( 'kit-local-analytics' ) ) && get_option( 'kit-local-analytics' ) === '1' ) {
 
 	if ( ! empty( get_option( 'kit-tracking-position' ) ) && get_option( 'kit-tracking-position' ) === 'wp_footer' ) {
 		$tracking_code_position = 'wp_footer';
