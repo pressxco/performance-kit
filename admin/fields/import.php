@@ -56,8 +56,6 @@ class Performance_Kit_Import_Export extends Performance_Kit_Admin {
 				update_option( $import_option, $import_key );
 
 			}
-		} else {
-			// echo 'hello2';
 		}
 
 	}
@@ -85,7 +83,7 @@ class Performance_Kit_Import_Export extends Performance_Kit_Admin {
 			<div class="kit-option">
 				<textarea class="kit-option kit_option_impot" rows="10" name="import_code"></textarea>
 			</div>
-			
+		
 		<?php
 				$this->performance_kit_import_process();
 				submit_button( esc_html__( 'Import Options', 'performance-kit' ), 'primary kit-button', 'restore_options', true );

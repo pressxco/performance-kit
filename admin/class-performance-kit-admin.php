@@ -240,9 +240,9 @@ class Performance_Kit_Admin {
 	 */
 	public function performance_kit_options() {
 
-		$kit_all_options = array_merge( $this->kit_wordpress_options, $this->kit_config_options, $this->kit_advanced_options, $this->kit_woocommerce_options, $this->kit_analytics_options, $this->kit_cdn_options, $this->kit_misc_options );
-
-		foreach ( $kit_all_options as $options => $key ) {
+		$kit_wp_options = array_merge( $this->kit_wordpress_options, $this->kit_config_options, $this->kit_advanced_options, $this->kit_woocommerce_options, $this->kit_analytics_options, $this->kit_cdn_options, $this->kit_misc_options );
+		
+		foreach ( $kit_wp_options as $options => $key ) {
 			register_setting(
 				$key['setting_group'],
 				$key['function'],

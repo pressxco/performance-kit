@@ -108,7 +108,7 @@ $background-color: #0a0d15;
   .kit_wrapper {
     .pk-section {
       background-color: #FFF;
-      border-radius: 6px;
+      border-radius: 0;
       box-shadow: 0px 2px 2px rgba(0,0,0,0.05);
       margin: 20px 0;
       border: 1px solid #e8e8e8;
@@ -289,7 +289,7 @@ $background-color: #0a0d15;
   min-height: 35px;
   border: 1px solid rgba(0, 0, 0, 0.2);
   box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.05);
-  min-width: 220px;
+  width: 240px;
 }
 
 #performance-kit span.tooltip {
@@ -331,7 +331,7 @@ $background-color: #0a0d15;
 }
 
 #performance-kit .section-title { 
-  padding: 24px 40px;
+  padding: 27px 40px;
   display: block;
   border-bottom: 1px solid rgba(0, 0, 0, 0.07);
 }
@@ -416,4 +416,11 @@ $background-color: #0a0d15;
       opacity: 1!important;
     }
   }
+}
+
+#performance-kit .notice.is-dismissible {
+	margin-top: 10px;
+	margin-bottom: -10px;
+	border-color: #e8e8e8;
+	border-left-color: #46b450;
 }

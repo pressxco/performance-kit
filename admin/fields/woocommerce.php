@@ -39,7 +39,6 @@ class Performance_Kit_Woocommerce_Options extends Performance_Kit_Admin {
 				);
 
 			?>
-		
 
 		</form>
 
@@ -57,7 +56,7 @@ $init->options_setup();
 <?php if ( $init->woocommerce_checker() === false ) { ?>
 
 <script>
-jQuery(".woocommerce_wrapper").addClass('active');
+	jQuery(".woocommerce_wrapper").addClass('active');
 </script>
 
 <?php } ?>
