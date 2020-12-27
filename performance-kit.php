@@ -138,7 +138,6 @@ function performance_kit_activation_redirect( $plugin ) {
 add_action( 'activated_plugin', 'performance_kit_activation_redirect' );
 
 
-
 if ( ! function_exists( 'pk_fs' ) ) {
 	// Create a helper function for easy SDK access.
 	function pk_fs() {
@@ -159,7 +158,7 @@ if ( ! function_exists( 'pk_fs' ) ) {
 					'has_paid_plans' => false,
 					'menu'           => array(
 						'slug'       => 'performance-kit',
-						'first-path' => '/options-general.php?page=performance-kit',
+						'first-path' => '/admin.php?page=performance-kit',
 						'account'    => false,
 						'contact'    => false,
 						'support'    => false,

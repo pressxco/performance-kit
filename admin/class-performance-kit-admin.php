@@ -177,7 +177,7 @@ class Performance_Kit_Admin {
 		/**
 		*  Documentation : https://codex.wordpress.org/Plugin_API/Filter_Reference/plugin_action_links_(plugin_file_name)
 		*/
-		$settings_link = array( '<a href="' . admin_url( 'options-general.php?page=' . $this->plugin_name ) . '">' . __( 'Settings', $this->plugin_name ) . '</a>' );
+		$settings_link = array( '<a href="' . admin_url( 'admin.php?page=' . $this->plugin_name ) . '">' . __( 'Settings', $this->plugin_name ) . '</a>' );
 		return array_merge( $settings_link, $links );
 
 	}
@@ -241,7 +241,7 @@ class Performance_Kit_Admin {
 	public function performance_kit_options() {
 
 		$kit_wp_options = array_merge( $this->kit_wordpress_options, $this->kit_config_options, $this->kit_advanced_options, $this->kit_woocommerce_options, $this->kit_analytics_options, $this->kit_cdn_options, $this->kit_misc_options );
-		
+
 		foreach ( $kit_wp_options as $options => $key ) {
 			register_setting(
 				$key['setting_group'],
