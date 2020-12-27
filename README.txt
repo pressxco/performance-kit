@@ -4,7 +4,7 @@ Tags: performance, speed, optimization, cdn, xmlrpc, cron, wp cron, disable edit
 Requires at least: 4.9.8
 Donate link: https://pressx.co
 Requires PHP: 5.6
-Tested up to: 5.5.3
+Tested up to: 5.6
 Stable tag: trunk
 License: MIT
 License URI: https://opensource.org/licenses/MIT
@@ -125,10 +125,10 @@ Yes. It's compatible with all CDN providers.
 
 == Changelog ==
 
-= 0.0.2 (2020-12-28 01:05 EET) =
+= 1.0.1 (2020-12-28 01:05 EET) =
 * Some internal improvements
 
-= 0.0.1 (2020-12-28 17:35 EET) =
+= 1.0.0 (2020-12-28 17:35 EET) =
 * Initial commit
 
 == Upgrade Notice ==

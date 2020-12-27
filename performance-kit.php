@@ -15,7 +15,7 @@
  * Plugin Name:       Performance Kit
  * Plugin URI:        https://pressx.co/plugins/performance-kit
  * Description:       Cherry on top of your speed optimization process.
- * Version:           1.0.0
+ * Version:           1.0.1
  * Author:            PressX
  * Author URI:        https://pressx.co
  * License:           GPL-2.0+
@@ -33,7 +33,7 @@ if ( ! defined( 'WPINC' ) ) {
  * Currently plugin version.
  * Start at version 1.0.0 and use SemVer - https://semver.org
  */
-define( 'PERFORMANCE_KIT_VERSION', '1.0.0' );
+define( 'PERFORMANCE_KIT_VERSION', '1.0.1' );
 
 
 /**
