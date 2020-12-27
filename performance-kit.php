@@ -156,7 +156,13 @@ if ( ! function_exists( 'pk_fs' ) ) {
 					'is_premium'     => false,
 					'has_addons'     => false,
 					'has_paid_plans' => false,
-					'menu'           => false,
+					'menu'           => array(
+						'slug'       => 'performance-kit',
+						'first-path' => '/admin.php?page=performance-kit',
+						'account'    => false,
+						'contact'    => false,
+						'support'    => false,
+					),
 				)
 			);
 		}

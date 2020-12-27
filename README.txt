@@ -102,16 +102,16 @@ By using Performance Kit, you can disable external requests, optimizing the Word
 = What is the purpose of this plugin?
 Performance Kit allows you to optimize the WordPress core by disabling external requests, optimizing the WordPress admin area, applying security best practises and integrations for the most used components such as CDN and analytics.
 
-= Can Performance Kit bloat up my website?
+= Will Performance Kit bloat up my website?
 No. The intention of this plugin is the optimizing your website, not the bloat up on your website. We carefully developed Performance Kit in order to not send any request to your front-end.
 
-= Is my settings will be preserved even I uninstall the plugin?
-No. If you delete plugin, all the settings will be deactivated and then deleted from your website. So there will be no trace that needs to be deal with.
+= Will  my settings be preserved even I uninstall the plugin?
+No. If you delete the plugin, all settings will be deactivated and then deleted from your website. So there will be no trace that needs to be dealt with.
 
 = How can I import settings from one website to another?
-You can simply use the Import function of Performance Kit which is placed in the right side of the settings menu. You'll be provided a encrypted key of your settings which you can use in the importing process. Everytime you change a setting, encrypted key is re-generated.
+You can simply use the Import function of Performance Kit which is located on the right side of the settings menu. You'll be provided an encrypted key of your settings which you can use in the importing process. Each time you change a setting, encrypted key is re-generated.
 
-= Is CDN settings compatible with my CDN provider?
+= Are CDN settings compatible with my CDN provider?
 Yes. It's compatible with all CDN providers.
 
 == Screenshots ==
@@ -125,7 +125,10 @@ Yes. It's compatible with all CDN providers.
 
 == Changelog ==
 
-= 0.0.1 (2020-12-06 21:40 EET) =
+= 0.0.2 (2020-12-28 01:05 EET) =
+* Some internal improvements
+
+= 0.0.1 (2020-12-28 17:35 EET) =
 * Initial commit
 
 == Upgrade Notice ==
